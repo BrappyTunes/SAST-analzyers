@@ -418,6 +418,37 @@ def analyze(
         typer.echo(df_multi.groupby('tool')['is_correct'].mean().round(4).to_string())
         df_multi.to_csv(multiclass_dir / "ALL_multiclass_evaluation.csv", index=False)
 
+    bin_all = binary_dir / "ALL_binary_evaluation.csv"
+    multi_all = multiclass_dir / "ALL_multiclass_evaluation.csv"
+    if bin_all.exists() and multi_all.exists():
+        try:
+            from eval_metrics import export_evaluation
+
+            metrics_dir = RESULTS_DIR / "metrics"
+            res = export_evaluation(bin_all, multi_all, metrics_dir)
+            typer.echo("\n--- Full metrics (precision/recall/F1, micro/macro) ---")
+            for tool, m in res["binary"]["by_tool"].items():
+                typer.echo(
+                    f"  binary/{tool}: acc={m['accuracy']:.4f} prec={m['precision']:.4f} "
+                    f"rec={m['recall']:.4f} f1={m['f1']:.4f}"
+                )
+            for tool, m in res["multiclass"]["by_tool"].items():
+                typer.echo(
+                    f"  multi/{tool}: acc={m['accuracy']:.4f} microF1={m['micro_f1']:.4f} "
+                    f"macroF1={m['macro_f1']:.4f}"
+                )
+            typer.echo(f"Metrics folder: {metrics_dir.resolve()}")
+            typer.echo(f"  - binary_metrics_by_tool.csv")
+            typer.echo(f"  - multiclass_metrics_by_tool.csv")
+            typer.echo(f"  - multiclass_per_class_metrics.csv")
+            typer.echo(f"  - metrics_full.json")
+            typer.echo(f"  - ALL_binary_evaluation.csv (copy)")
+            typer.echo(f"  - ALL_multiclass_evaluation.csv (copy)")
+            typer.echo(f"  - CONCLUSION.md")
+            typer.echo(f"Conclusion:     {res['conclusion'].resolve()}")
+        except Exception as e:
+            typer.echo(f"Metrics export failed: {e}")
+
     typer.echo(f"Все результаты сохранены в: {RESULTS_DIR.resolve()}")
 
 

@@ -1,52 +1,68 @@
 # SAST Analyzer
 
-Scan C/C++ projects (local folders or GitHub repos) with three SAST tools and write a **CSV** report.
+Workflow:
 
-## Tools (from GitHub)
+1. **SAST tools** (cppcheck, flawfinder, RATS) analyze C/C++ code → `sast_report.csv`
+2. **LLM** analyzes the same functions → `llm_report.csv` (separate file)
+3. **Compare** computes metrics from both reports, then the LLM writes a conclusion
 
-| Tool | Source | Role |
-|------|--------|------|
-| **cppcheck** | [cppcheck-opensource/cppcheck](https://github.com/cppcheck-opensource/cppcheck) | Deep C/C++ static analysis |
-| **flawfinder** | [david-a-wheeler/flawfinder](https://github.com/david-a-wheeler/flawfinder) | Dangerous-function / CWE scanner |
-| **RATS** | [andrew-d/rough-auditing-tool-for-security](https://github.com/andrew-d/rough-auditing-tool-for-security) | Rough auditing (Windows uses `rats_scan.py` + official vuln DB) |
+## Tools
 
-Cloned under `tools/`. System cppcheck is installed via winget.
+| Tool | Source |
+|------|--------|
+| cppcheck | system install + [cppcheck-opensource/cppcheck](https://github.com/cppcheck-opensource/cppcheck) |
+| flawfinder | vendored in `tools/flawfinder` |
+| RATS | vendored DB + `tools/rats/rats_scan.py` |
 
 ## Setup
 
 ```powershell
 uv sync
+winget install -e --id Cppcheck.Cppcheck   # once per machine
+copy .env.example .env                     # fill API key for --llm / compare conclusion
 uv run python cli.py check-tools
-```
-
-Optional LLM (`.env`):
-
-```
-OPENAI_API_BASE_URL=https://api.dslab.tech/v1
-OPENAI_API_KEY=your-key
-OPENAI_API_MODEL=deepseek-v4-flash-0731
 ```
 
 ## Usage
 
 ```powershell
-# Local folder
-uv run python cli.py analyze ./projects/cJSON results/cjson --no-resume
+# SAST only
+uv run python cli.py analyze projects/cJSON results/cjson --no-resume
 
-# GitHub owner/repo (clones into projects/)
-uv run python cli.py analyze DaveGamble/cJSON results/cjson --max-files 30
+# Full workflow: SAST + LLM + metrics + conclusion
+uv run python cli.py analyze projects/cJSON results/cjson --llm --no-resume --max-files 10
 
-# Full GitHub URL + optional LLM
-uv run python cli.py analyze https://github.com/DaveGamble/cJSON results/cjson --llm
-
-# Juliet evaluation pipeline (CSV accuracy tables)
-uv run python pipeline.py analyze ./juliet --sample 50
+# Or compare existing reports later
+uv run python cli.py compare results/cjson
 ```
 
-## Output
+## Outputs
 
-In the output directory:
+### Project scan (`cli.py analyze`)
 
-- `analysis_report.csv` — main table
-- `analysis_results.jsonl`
-- `analysis_report.xlsx`
+```
+results/<run>/
+  sast_report.csv
+  llm_report.csv          # with --llm
+  metrics/
+    project_descriptive.json
+    binary_metrics_by_tool.csv      # empty until Juliet/benchmark GT exists
+    multiclass_metrics_by_tool.csv
+    multiclass_per_class_metrics.csv
+    sast_vs_llm_agreement.csv       # with --llm
+    metrics_full.json
+    CONCLUSION.md
+```
+
+### Juliet benchmark (`pipeline.py`)
+
+```
+results/metrics/
+  ALL_binary_evaluation.csv
+  ALL_multiclass_evaluation.csv
+  binary_metrics_by_tool.csv      # accuracy, precision, recall, F1, ...
+  multiclass_metrics_by_tool.csv  # micro/macro/weighted F1
+  multiclass_per_class_metrics.csv
+  metrics_full.json
+  CONCLUSION.md
+```

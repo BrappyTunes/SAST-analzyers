@@ -101,15 +101,16 @@ def extract_cwe_id(text: str) -> Optional[str]:
 class BatchWriter:
     """Writes results in batches to CSV, JSONL, and Excel."""
 
-    def __init__(self, output_dir: Path, batch_size: int = BATCH_SIZE):
+    def __init__(self, output_dir: Path, prefix: str, batch_size: int = BATCH_SIZE):
         self.output_dir = output_dir
+        self.prefix = prefix
         self.batch_size = batch_size
         self.buffer: List[Dict[str, Any]] = []
         self.total_written = 0
 
-        self.csv_path = output_dir / "analysis_report.csv"
-        self.jsonl_path = output_dir / "analysis_results.jsonl"
-        self.xlsx_path = output_dir / "analysis_report.xlsx"
+        self.csv_path = output_dir / f"{prefix}.csv"
+        self.jsonl_path = output_dir / f"{prefix}.jsonl"
+        self.xlsx_path = output_dir / f"{prefix}.xlsx"
 
         self._jsonl_file = open(self.jsonl_path, "a", encoding="utf-8")
 
@@ -130,7 +131,7 @@ class BatchWriter:
             else:
                 self._wb = Workbook()
                 self._ws = self._wb.active
-                self._ws.title = "Analysis"
+                self._ws.title = prefix[:31]
                 self._ws.append(COLUMNS)
                 self._ws.freeze_panes = "A2"
         except Exception:
@@ -158,7 +159,7 @@ class BatchWriter:
             self._wb.save(str(self.xlsx_path))
 
         self.total_written += len(self.buffer)
-        typer.echo(f"  flushed {len(self.buffer)} rows (total: {self.total_written})")
+        typer.echo(f"  [{self.prefix}] flushed {len(self.buffer)} (total: {self.total_written})")
         self.buffer.clear()
 
     def close(self) -> None:
@@ -169,7 +170,6 @@ class BatchWriter:
             self._csv_file.close()
         if self._wb:
             self._wb.save(str(self.xlsx_path))
-
 
 def extract_functions(filepath: str) -> Dict[str, Dict[str, Any]]:
     functions: Dict[str, Dict[str, Any]] = {}
@@ -455,23 +455,37 @@ def resolve_input(source: str) -> Path:
 @app.command()
 def analyze(
     input_source: str = typer.Argument(..., help="Local dir, GitHub URL, or owner/repo"),
-    output_dir: Path = typer.Argument(..., help="Output directory for CSV/JSONL/XLSX"),
-    use_llm: bool = typer.Option(False, "--llm", help="Also run LLM analysis"),
+    output_dir: Path = typer.Argument(..., help="Output directory for reports"),
+    use_llm: bool = typer.Option(False, "--llm", help="Also run LLM analysis into llm_report.*"),
+    compare: bool = typer.Option(
+        True,
+        "--compare/--no-compare",
+        help="After SAST+LLM, compute metrics and LLM conclusion",
+    ),
     llm_workers: int = typer.Option(8, "--workers"),
     batch_size: int = typer.Option(50, "--batch-size"),
     resume: bool = typer.Option(True, "--resume/--no-resume"),
     max_files: int = typer.Option(0, "--max-files", help="Limit files scanned (0=all)"),
 ):
-    """Run cppcheck, flawfinder, and RATS; write analysis_report.csv."""
+    """Run SAST (and optional LLM) into separate reports, then compare."""
+    from compare_reports import run_compare_reports
+
     input_dir = resolve_input(input_source)
     output_dir.mkdir(parents=True, exist_ok=True)
 
     checkpoint_path = output_dir / CHECKPOINT_FILE
     if not resume:
         for name in (
-            "analysis_report.csv",
-            "analysis_results.jsonl",
-            "analysis_report.xlsx",
+            "sast_report.csv",
+            "sast_report.jsonl",
+            "sast_report.xlsx",
+            "llm_report.csv",
+            "llm_report.jsonl",
+            "llm_report.xlsx",
+            "comparison_metrics.json",
+            "comparison_metrics.csv",
+            "comparison_disagreements.csv",
+            "comparison_conclusion.md",
             CHECKPOINT_FILE,
         ):
             p = output_dir / name
@@ -481,13 +495,13 @@ def analyze(
                 except PermissionError:
                     typer.echo(f"Warning: could not delete locked file {p}")
 
-    writer = BatchWriter(output_dir, batch_size=batch_size)
+    sast_writer = BatchWriter(output_dir, "sast_report", batch_size=batch_size)
+    llm_writer = BatchWriter(output_dir, "llm_report", batch_size=batch_size) if use_llm else None
     checkpoint = load_checkpoint(checkpoint_path) if resume else {}
     processed_files = set(checkpoint.get("processed_files", []))
 
     c_files: list[str] = []
     for root, _, files in os.walk(input_dir):
-        # skip common vendor/build dirs
         parts = set(Path(root).parts)
         if parts & {".git", "node_modules", "build", "Build", "cmake-build-debug"}:
             continue
@@ -537,7 +551,7 @@ def analyze(
                             )
 
                 if not sast_msgs:
-                    writer.append(
+                    sast_writer.append(
                         {
                             "file_path": rel_path,
                             "func_name": func_name,
@@ -550,7 +564,7 @@ def analyze(
                     )
                 else:
                     for m in deduplicate_findings(sast_msgs):
-                        writer.append(m)
+                        sast_writer.append(m)
 
                 if use_llm:
                     masked_code = re.sub(rf"\b{re.escape(func_name)}\b", "target_function", info["code"])
@@ -573,10 +587,10 @@ def analyze(
                 },
             )
 
-    writer.flush()
-    typer.echo(f"SAST results written: {writer.total_written}")
+    sast_writer.flush()
+    typer.echo(f"SAST report rows: {sast_writer.total_written} -> {sast_writer.csv_path}")
 
-    if use_llm and llm_tasks:
+    if use_llm and llm_tasks and llm_writer is not None:
         if not LLM_AVAILABLE:
             typer.echo("LLM requested but langchain/pydantic not available.")
         else:
@@ -599,24 +613,73 @@ def analyze(
                 futures = {executor.submit(process_task, t): t for t in llm_tasks}
                 with typer.progressbar(as_completed(futures), label="LLM analysis", length=len(futures)) as bar:
                     for future in bar:
-                        writer.append(future.result())
+                        llm_writer.append(future.result())
                         llm_written += 1
                         if llm_written % batch_size == 0:
                             save_llm_cache(cache)
             save_llm_cache(cache)
-            typer.echo(f"LLM results written: {llm_written}")
+            typer.echo(f"LLM report rows: {llm_written} -> {llm_writer.csv_path}")
 
-    writer.close()
+    sast_writer.close()
+    if llm_writer is not None:
+        llm_writer.close()
+
     save_checkpoint(
         checkpoint_path,
-        {"stage": "completed", "processed_files": list(processed_files), "total_rows": writer.total_written},
+        {
+            "stage": "completed",
+            "processed_files": list(processed_files),
+            "sast_rows": sast_writer.total_written,
+        },
     )
 
-    typer.echo(f"\nCSV:   {writer.csv_path.resolve()}")
-    typer.echo(f"JSONL: {writer.jsonl_path.resolve()}")
-    if writer.xlsx_path.exists():
-        typer.echo(f"XLSX:  {writer.xlsx_path.resolve()}")
-    typer.echo(f"Total entries: {writer.total_written}")
+    typer.echo(f"\nSAST CSV: {sast_writer.csv_path.resolve()}")
+    if llm_writer is not None:
+        typer.echo(f"LLM CSV:  {llm_writer.csv_path.resolve()}")
+
+    if use_llm and compare and llm_writer is not None and llm_writer.total_written > 0:
+        typer.echo("\n--- Comparing SAST vs LLM reports ---")
+        try:
+            result = run_compare_reports(output_dir)
+            m = result["metrics"]
+            typer.echo(f"Agreement rate: {m['binary_agreement_rate']}")
+            typer.echo(f"Compare note:   {result['conclusion_md'].resolve()}")
+        except Exception as e:
+            typer.echo(f"Compare failed: {e}")
+
+    # Always write metrics/ package (same layout as benchmark example)
+    try:
+        from eval_metrics import write_run_metrics_package
+
+        metrics_res = write_run_metrics_package(output_dir)
+        typer.echo(f"\nMetrics folder: {metrics_res['out_dir'].resolve()}")
+        typer.echo(f"Conclusion:     {metrics_res['conclusion'].resolve()}")
+    except Exception as e:
+        typer.echo(f"Metrics package failed: {e}")
+
+
+@app.command("compare")
+def compare_cmd(
+    output_dir: Path = typer.Argument(..., exists=True, dir_okay=True, help="Dir with sast_report.csv + llm_report.csv"),
+):
+    """Compute metrics from existing SAST/LLM reports and write metrics/ package."""
+    from compare_reports import run_compare_reports
+    from eval_metrics import write_run_metrics_package
+
+    try:
+        result = run_compare_reports(output_dir)
+    except FileNotFoundError as e:
+        raise typer.BadParameter(str(e)) from e
+
+    m = result["metrics"]
+    typer.echo(f"Functions compared: {m['functions_compared']}")
+    typer.echo(f"Agreement rate:     {m['binary_agreement_rate']}")
+    typer.echo(f"SAST-only vulns:    {m['disagreement_sast_only']}")
+    typer.echo(f"LLM-only vulns:     {m['disagreement_llm_only']}")
+
+    metrics_res = write_run_metrics_package(output_dir)
+    typer.echo(f"\nMetrics folder: {metrics_res['out_dir'].resolve()}")
+    typer.echo(f"Conclusion:     {metrics_res['conclusion'].resolve()}")
 
 
 @app.command("check-tools")
@@ -630,6 +693,35 @@ def check_tools():
             exists = Path(cfg["cmd"][1]).exists()
         status = "OK" if exists else "MISSING"
         typer.echo(f"{name:12} [{status}]  {' '.join(cfg['cmd'][:3])}...")
+
+
+@app.command("eval")
+def eval_cmd(
+    binary_csv: Path = typer.Argument(..., exists=True, help="ALL_binary_evaluation.csv"),
+    multiclass_csv: Path = typer.Argument(..., exists=True, help="ALL_multiclass_evaluation.csv"),
+    out_dir: Path = typer.Option(Path("metrics"), "--out", help="Output folder for metrics"),
+    report: Optional[Path] = typer.Option(
+        None, "--report", help="Optional ungrounded project report (csv/xlsx) e.g. cJSON"
+    ),
+):
+    """Compute accuracy/precision/recall/F1 (binary) and micro/macro metrics (multiclass)."""
+    from eval_metrics import export_evaluation
+
+    res = export_evaluation(binary_csv, multiclass_csv, out_dir, ungrounded_report=report)
+    typer.echo("\nBinary metrics by tool:")
+    for tool, m in res["binary"]["by_tool"].items():
+        typer.echo(
+            f"  {tool:12} acc={m['accuracy']:.4f}  prec={m['precision']:.4f}  "
+            f"rec={m['recall']:.4f}  f1={m['f1']:.4f}"
+        )
+    typer.echo("\nMulticlass metrics by tool:")
+    for tool, m in res["multiclass"]["by_tool"].items():
+        typer.echo(
+            f"  {tool:12} acc={m['accuracy']:.4f}  microF1={m['micro_f1']:.4f}  "
+            f"macroF1={m['macro_f1']:.4f}  weightedF1={m['weighted_f1']:.4f}"
+        )
+    typer.echo(f"\nWrote: {res['conclusion'].resolve()}")
+    typer.echo(f"Folder: {out_dir.resolve()}")
 
 
 if __name__ == "__main__":
