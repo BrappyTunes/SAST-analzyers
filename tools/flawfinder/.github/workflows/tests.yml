@@ -1,0 +1,10 @@
+on: [push, pull_request]
+
+jobs:
+  test:
+    name: Test suite
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run tests
+        run: cd test && make test PYTHON=python3

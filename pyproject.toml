@@ -1,0 +1,20 @@
+[project]
+name = "sast-analyzer"
+version = "1.0.0"
+description = "Multi-tool SAST pipeline for C/C++ GitHub projects"
+requires-python = ">=3.10"
+dependencies = [
+    "typer>=0.12",
+    "pandas>=2.0",
+    "openpyxl>=3.1",
+    "python-dotenv>=1.0",
+    "langchain-core>=0.3",
+    "langchain-openai>=0.2",
+    "pydantic>=2.0",
+]
+
+[project.scripts]
+sast = "cli:app"
+
+[tool.uv]
+package = false
