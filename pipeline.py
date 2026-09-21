@@ -425,7 +425,7 @@ def analyze(
             from eval_metrics import export_evaluation
 
             metrics_dir = RESULTS_DIR / "metrics"
-            res = export_evaluation(bin_all, multi_all, metrics_dir)
+            res = export_evaluation(bin_all, multi_all, metrics_dir, copy_sources=True)
             typer.echo("\n--- Full metrics (precision/recall/F1, micro/macro) ---")
             for tool, m in res["binary"]["by_tool"].items():
                 typer.echo(
