@@ -1,0 +1,30 @@
+{
+  "source": "results\\hiredis\\sast_report.csv",
+  "has_ground_truth": false,
+  "note": "No ground-truth labels — accuracy/recall cannot be computed.",
+  "n_rows": 425,
+  "vulnerable_rows": 278,
+  "clean_rows": 147,
+  "vulnerable_rate": 0.654118,
+  "findings_by_analyzer": {
+    "SAST_RATS": 131,
+    "SAST_CPPCHECK": 95,
+    "SAST_FLAWFINDER": 52
+  },
+  "top_cwes": {
+    "CWE-398": 82,
+    "CWE-126": 19,
+    "CWE-120": 14,
+    "CWE-119": 12,
+    "CWE-190": 5,
+    "CWE-563": 4,
+    "CWE-686": 2,
+    "CWE-476": 2,
+    "CWE-664": 1,
+    "CWE-676": 1,
+    "CWE-570": 1,
+    "CWE-362": 1,
+    "CWE-571": 1
+  },
+  "unique_functions": 266
+}

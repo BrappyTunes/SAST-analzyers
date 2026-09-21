@@ -1,0 +1,16 @@
+metric,value
+functions_compared,902
+sast_total_rows,994
+llm_total_rows,902
+sast_vulnerable_functions,103
+llm_vulnerable_functions,69
+agreement_both_vulnerable,33
+agreement_both_clean,763
+disagreement_sast_only,70
+disagreement_llm_only,36
+binary_agreement_rate,0.8825
+cwe_overlap_on_both_vuln,3
+cwe_mismatch_on_both_vuln,30
+sast_tool_SAST_FLAWFINDER,45
+sast_tool_SAST_RATS,42
+sast_tool_SAST_CPPCHECK,108

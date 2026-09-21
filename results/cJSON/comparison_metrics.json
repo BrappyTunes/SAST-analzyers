@@ -1,0 +1,414 @@
+{
+  "functions_compared": 902,
+  "sast_total_rows": 994,
+  "llm_total_rows": 902,
+  "sast_vulnerable_functions": 103,
+  "llm_vulnerable_functions": 69,
+  "agreement_both_vulnerable": 33,
+  "agreement_both_clean": 763,
+  "disagreement_sast_only": 70,
+  "disagreement_llm_only": 36,
+  "binary_agreement_rate": 0.8825,
+  "cwe_overlap_on_both_vuln": 3,
+  "cwe_mismatch_on_both_vuln": 30,
+  "sast_findings_by_tool": {
+    "SAST_FLAWFINDER": 45,
+    "SAST_RATS": 42,
+    "SAST_CPPCHECK": 108
+  },
+  "sast_cwe_distribution": {
+    "CWE-398": 63,
+    "CWE-476": 21,
+    "CWE-126": 17,
+    "CWE-119": 14,
+    "CWE-120": 10,
+    "CWE-563": 3,
+    "CWE-788": 3,
+    "CWE-362": 1,
+    "CWE-327": 1,
+    "CWE-134": 1,
+    "CWE-571": 1,
+    "CWE-401": 1
+  },
+  "llm_cwe_distribution": {
+    "CWE-476": 18,
+    "CWE-125": 11,
+    "CWE-787": 9,
+    "CWE-120": 6,
+    "CWE-416": 5,
+    "CWE-190": 4,
+    "CWE-415": 3,
+    "CWE-121": 3,
+    "CWE-590": 2,
+    "CWE-131": 1,
+    "CWE-369": 1,
+    "CWE-252": 1,
+    "CWE-754": 1,
+    "CWE-119": 1,
+    "CWE-681": 1,
+    "CWE-805": 1,
+    "CWE-457": 1
+  },
+  "disagreement_samples": [
+    {
+      "file_path": "tests\\parse_array.c",
+      "func_name": "assert_is_array",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-398,CWE-476",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "tests\\unity\\test\\tests\\testunity.c",
+      "func_name": "testFloatsEqualBothNaN",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-398",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "tests\\unity\\src\\unity.c",
+      "func_name": "UnityPrint",
+      "sast_vulnerable": false,
+      "llm_vulnerable": true,
+      "sast_cwes": "",
+      "llm_cwes": "CWE-125",
+      "note": "LLM only"
+    },
+    {
+      "file_path": "tests\\misc_tests.c",
+      "func_name": "cjson_get_object_item_case_sensitive_should_get_object_items",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-398,CWE-476",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "tests\\minify_tests.c",
+      "func_name": "cjson_minify_should_remove_single_line_comments",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-120,CWE-476",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "tests\\unity\\test\\tests\\testunity.c",
+      "func_name": "testFloatsNotEqualNaNInf",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-398",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "cJSON.c",
+      "func_name": "skip_multiline_comment",
+      "sast_vulnerable": false,
+      "llm_vulnerable": true,
+      "sast_cwes": "",
+      "llm_cwes": "CWE-125",
+      "note": "LLM only"
+    },
+    {
+      "file_path": "tests\\parse_object.c",
+      "func_name": "assert_parse_object",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-126",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "tests\\parse_number.c",
+      "func_name": "assert_parse_number",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-126",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "tests\\unity\\test\\tests\\testunity.c",
+      "func_name": "testDoubleIsNan1",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-398",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "tests\\old_utils_tests.c",
+      "func_name": "sort_tests",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-119,CWE-327,CWE-398",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "tests\\misc_tests.c",
+      "func_name": "cjson_get_object_item_should_not_crash_with_array",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-398",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "tests\\unity\\test\\tests\\testunity.c",
+      "func_name": "testFloatNanIsNotInf",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-398",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "tests\\parse_array.c",
+      "func_name": "parse_array_should_parse_arrays_with_multiple_elements",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-398",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "tests\\unity\\src\\unity.c",
+      "func_name": "UnityStringArgumentMatches",
+      "sast_vulnerable": false,
+      "llm_vulnerable": true,
+      "sast_cwes": "",
+      "llm_cwes": "CWE-125",
+      "note": "LLM only"
+    },
+    {
+      "file_path": "tests\\misc_tests.c",
+      "func_name": "cjson_get_object_item_case_sensitive_should_not_crash_with_array",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-398",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "tests\\unity\\test\\tests\\testunity.c",
+      "func_name": "testDoublesEqualBothNaN",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-398",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "tests\\readme_examples.c",
+      "func_name": "create_monitor",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "tests\\unity\\test\\tests\\testunity.c",
+      "func_name": "testDoubleIsNotDeterminate1",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-398",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "tests\\unity\\test\\tests\\testunity.c",
+      "func_name": "testFloatIsNan2",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-398",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "cJSON.c",
+      "func_name": "suffix_object",
+      "sast_vulnerable": false,
+      "llm_vulnerable": true,
+      "sast_cwes": "",
+      "llm_cwes": "CWE-476",
+      "note": "LLM only"
+    },
+    {
+      "file_path": "tests\\unity\\test\\tests\\testunity.c",
+      "func_name": "testEqualFloatEachEqualNaN",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-398",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "tests\\unity\\test\\tests\\testunity.c",
+      "func_name": "testNotEqualMemoryEachEqualExpectedNull",
+      "sast_vulnerable": false,
+      "llm_vulnerable": true,
+      "sast_cwes": "",
+      "llm_cwes": "CWE-476",
+      "note": "LLM only"
+    },
+    {
+      "file_path": "tests\\misc_tests.c",
+      "func_name": "cjson_get_object_item_should_get_object_items",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-398,CWE-476",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "tests\\misc_tests.c",
+      "func_name": "cjson_set_bool_value_must_not_break_objects",
+      "sast_vulnerable": false,
+      "llm_vulnerable": true,
+      "sast_cwes": "",
+      "llm_cwes": "CWE-476",
+      "note": "LLM only"
+    },
+    {
+      "file_path": "tests\\cjson_add.c",
+      "func_name": "cjson_add_true_should_add_true",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-398,CWE-476",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "tests\\parse_string.c",
+      "func_name": "assert_not_parse_string",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "tests\\unity\\test\\tests\\testunity.c",
+      "func_name": "testDoublesNotEqualActualNaN",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-398",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "tests\\cjson_add.c",
+      "func_name": "cJSON_add_array_should_add_array",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-398,CWE-476",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "cJSON_Utils.c",
+      "func_name": "decode_pointer_inplace",
+      "sast_vulnerable": false,
+      "llm_vulnerable": true,
+      "sast_cwes": "",
+      "llm_cwes": "CWE-787",
+      "note": "LLM only"
+    },
+    {
+      "file_path": "tests\\unity\\extras\\fixture\\test\\unity_output_Spy.c",
+      "func_name": "UnityOutputCharSpy_Destroy",
+      "sast_vulnerable": false,
+      "llm_vulnerable": true,
+      "sast_cwes": "",
+      "llm_cwes": "CWE-415",
+      "note": "LLM only"
+    },
+    {
+      "file_path": "tests\\unity\\test\\tests\\testunity.c",
+      "func_name": "testEqualDoubleEachEqualNaN",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-398",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "tests\\unity\\extras\\fixture\\src\\unity_fixture.c",
+      "func_name": "unity_calloc",
+      "sast_vulnerable": false,
+      "llm_vulnerable": true,
+      "sast_cwes": "",
+      "llm_cwes": "CWE-190",
+      "note": "LLM only"
+    },
+    {
+      "file_path": "tests\\unity\\test\\tests\\testunity.c",
+      "func_name": "testEqualPtrArrays",
+      "sast_vulnerable": false,
+      "llm_vulnerable": true,
+      "sast_cwes": "",
+      "llm_cwes": "CWE-125",
+      "note": "LLM only"
+    },
+    {
+      "file_path": "fuzzing\\afl.c",
+      "func_name": "main",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "tests\\parse_number.c",
+      "func_name": "assert_parse_big_number",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-126",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "tests\\unity\\extras\\fixture\\src\\unity_fixture.c",
+      "func_name": "release_memory",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-398",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "tests\\unity\\test\\tests\\testunity.c",
+      "func_name": "testDoubleNanIsNotInf",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-398",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "tests\\unity\\extras\\fixture\\test\\unity_output_Spy.c",
+      "func_name": "UnityOutputCharSpy_OutputChar",
+      "sast_vulnerable": false,
+      "llm_vulnerable": true,
+      "sast_cwes": "",
+      "llm_cwes": "CWE-787",
+      "note": "LLM only"
+    },
+    {
+      "file_path": "tests\\unity\\src\\unity.c",
+      "func_name": "UnityPrintNumber",
+      "sast_vulnerable": false,
+      "llm_vulnerable": true,
+      "sast_cwes": "",
+      "llm_cwes": "CWE-190",
+      "note": "LLM only"
+    }
+  ]
+}

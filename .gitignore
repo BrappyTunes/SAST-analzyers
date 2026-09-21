@@ -3,9 +3,4 @@ __pycache__/
 *.pyc
 .env
 .llm_cache.json
-projects/
-results/
-*.xlsx
-.analysis_checkpoint.json
-analysis_results.jsonl
 tools/cppcheck-src/

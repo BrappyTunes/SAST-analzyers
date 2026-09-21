@@ -1,0 +1,32 @@
+{
+  "stage": "completed",
+  "processed_files": [
+    "examples\\example-ivykis.c",
+    "examples\\example-macosx.c",
+    "examples\\example-libhv.c",
+    "dict.c",
+    "ssl.c",
+    "async.c",
+    "examples\\example-push.c",
+    "examples\\example-libuv.c",
+    "examples\\example-qt.cpp",
+    "examples\\example-libevent-ssl.c",
+    "examples\\example-redismoduleapi.c",
+    "examples\\example-libev.c",
+    "hiredis.c",
+    "read.c",
+    "sds.c",
+    "sockcompat.c",
+    "net.c",
+    "examples\\example-libsdevent.c",
+    "examples\\example-ae.c",
+    "alloc.c",
+    "examples\\example.c",
+    "examples\\example-glib.c",
+    "examples\\example-libevent.c",
+    "examples\\example-ssl.c",
+    "test.c",
+    "examples\\example-poll.c"
+  ],
+  "sast_rows": 425
+}

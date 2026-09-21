@@ -1,0 +1,346 @@
+{
+  "functions_compared": 78,
+  "sast_total_rows": 218,
+  "llm_total_rows": 78,
+  "sast_vulnerable_functions": 54,
+  "llm_vulnerable_functions": 27,
+  "agreement_both_vulnerable": 24,
+  "agreement_both_clean": 21,
+  "disagreement_sast_only": 30,
+  "disagreement_llm_only": 3,
+  "binary_agreement_rate": 0.5769,
+  "cwe_overlap_on_both_vuln": 7,
+  "cwe_mismatch_on_both_vuln": 17,
+  "sast_findings_by_tool": {
+    "SAST_CPPCHECK": 53,
+    "SAST_RATS": 83,
+    "SAST_FLAWFINDER": 58
+  },
+  "sast_cwe_distribution": {
+    "CWE-119": 22,
+    "CWE-398": 19,
+    "CWE-120": 13,
+    "CWE-126": 9,
+    "CWE-362": 7,
+    "CWE-563": 5,
+    "CWE-686": 4,
+    "CWE-570": 4,
+    "CWE-571": 3,
+    "CWE-190": 3,
+    "CWE-457": 3,
+    "CWE-665": 1,
+    "CWE-562": 1,
+    "CWE-775": 1
+  },
+  "llm_cwe_distribution": {
+    "CWE-120": 7,
+    "CWE-787": 5,
+    "CWE-190": 3,
+    "CWE-476": 2,
+    "CWE-221": 2,
+    "CWE-121": 2,
+    "CWE-125": 2,
+    "CWE-457": 2,
+    "CWE-416": 1,
+    "CWE-131": 1
+  },
+  "disagreement_samples": [
+    {
+      "file_path": "contrib\\minizip\\miniunz.c",
+      "func_name": "makedir",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-120,CWE-126,CWE-570,CWE-571",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "test\\example.c",
+      "func_name": "test_deflate",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-126",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "contrib\\testzlib\\testzlib.c",
+      "func_name": "BeginCountRdtsc",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-398",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "examples\\gzappend.c",
+      "func_name": "main",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-563",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "contrib\\minizip\\minizip.c",
+      "func_name": "do_help",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "inftrees.c",
+      "func_name": "main",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-686",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "contrib\\minizip\\miniunz.c",
+      "func_name": "mymkdir",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-570,CWE-571",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "contrib\\minizip\\minizip.c",
+      "func_name": "getFileCrc",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-398",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "contrib\\minizip\\miniunz.c",
+      "func_name": "do_banner",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "examples\\zpipe.c",
+      "func_name": "inf",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-119,CWE-398",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "contrib\\blast\\blast-test.c",
+      "func_name": "main",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-120,CWE-398",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "contrib\\minizip\\minizip.c",
+      "func_name": "isLargeFile",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-398,CWE-563",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "test\\minigzip.c",
+      "func_name": "gz_compress",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-119",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "contrib\\iostream3\\test.cc",
+      "func_name": "main",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-119",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "examples\\zran.c",
+      "func_name": "main",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-119,CWE-362,CWE-686,CWE-775",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "contrib\\minizip\\minizip.c",
+      "func_name": "do_banner",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "examples\\zran.c",
+      "func_name": "inflatePreface",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-119,CWE-120,CWE-562",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "test\\minigzip.c",
+      "func_name": "main",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-119,CWE-362,CWE-398",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "contrib\\testzlib\\testzlib.c",
+      "func_name": "myGetRDTSC32",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-398",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "test\\minigzip.c",
+      "func_name": "gzread",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-119,CWE-398",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "test\\infcover.c",
+      "func_name": "main",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "contrib\\minizip\\miniunz.c",
+      "func_name": "do_help",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "test\\minigzip.c",
+      "func_name": "gzwrite",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-119,CWE-457",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "contrib\\testzlib\\testzlib.c",
+      "func_name": "BeginCountPerfCounter",
+      "sast_vulnerable": false,
+      "llm_vulnerable": true,
+      "sast_cwes": "",
+      "llm_cwes": "CWE-476",
+      "note": "LLM only"
+    },
+    {
+      "file_path": "test\\minigzip.c",
+      "func_name": "gz_compress_mmap",
+      "sast_vulnerable": false,
+      "llm_vulnerable": true,
+      "sast_cwes": "",
+      "llm_cwes": "CWE-131",
+      "note": "LLM only"
+    },
+    {
+      "file_path": "examples\\zpipe.c",
+      "func_name": "def",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-119,CWE-398",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "contrib\\minizip\\ioapi.c",
+      "func_name": "fill_fopen_filefunc",
+      "sast_vulnerable": false,
+      "llm_vulnerable": true,
+      "sast_cwes": "",
+      "llm_cwes": "CWE-476",
+      "note": "LLM only"
+    },
+    {
+      "file_path": "contrib\\minizip\\miniunz.c",
+      "func_name": "Display64BitsSize",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-119",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "test\\minigzip.c",
+      "func_name": "gzclose",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-119,CWE-457",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "test\\minigzip.c",
+      "func_name": "gz_uncompress",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-119,CWE-398",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "contrib\\minizip\\miniunz.c",
+      "func_name": "do_extract_onefile",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "test\\example.c",
+      "func_name": "main",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "test\\minigzip.c",
+      "func_name": "error",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "",
+      "llm_cwes": "",
+      "note": "SAST only"
+    }
+  ]
+}

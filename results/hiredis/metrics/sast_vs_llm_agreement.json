@@ -1,0 +1,418 @@
+{
+  "functions_compared": 266,
+  "sast_total_rows": 425,
+  "llm_total_rows": 266,
+  "sast_vulnerable_functions": 119,
+  "llm_vulnerable_functions": 127,
+  "agreement_both_vulnerable": 87,
+  "agreement_both_clean": 107,
+  "disagreement_sast_only": 32,
+  "disagreement_llm_only": 40,
+  "binary_agreement_rate": 0.7293,
+  "cwe_overlap_on_both_vuln": 0,
+  "cwe_mismatch_on_both_vuln": 87,
+  "sast_findings_by_tool": {
+    "SAST_CPPCHECK": 95,
+    "SAST_FLAWFINDER": 52,
+    "SAST_RATS": 131
+  },
+  "sast_cwe_distribution": {
+    "CWE-398": 59,
+    "CWE-126": 19,
+    "CWE-120": 13,
+    "CWE-119": 12,
+    "CWE-190": 5,
+    "CWE-563": 4,
+    "CWE-664": 1,
+    "CWE-676": 1,
+    "CWE-570": 1,
+    "CWE-362": 1,
+    "CWE-686": 1,
+    "CWE-571": 1,
+    "CWE-476": 1
+  },
+  "llm_cwe_distribution": {
+    "CWE-476": 72,
+    "CWE-125": 14,
+    "CWE-787": 6,
+    "CWE-416": 4,
+    "CWE-190": 4,
+    "CWE-121": 3,
+    "CWE-758": 2,
+    "CWE-681": 2,
+    "CWE-617": 2,
+    "CWE-779": 2,
+    "CWE-457": 1,
+    "CWE-248": 1,
+    "CWE-674": 1,
+    "CWE-120": 1,
+    "CWE-772": 1,
+    "CWE-252": 1,
+    "CWE-131": 1,
+    "CWE-755": 1,
+    "CWE-761": 1,
+    "CWE-366": 1
+  },
+  "disagreement_samples": [
+    {
+      "file_path": "read.c",
+      "func_name": "processAggregateItem",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-398,CWE-563",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "read.c",
+      "func_name": "redisReaderGrow",
+      "sast_vulnerable": false,
+      "llm_vulnerable": true,
+      "sast_cwes": "",
+      "llm_cwes": "CWE-755",
+      "note": "LLM only"
+    },
+    {
+      "file_path": "test.c",
+      "func_name": "test_resp3_push_options",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-398",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "examples\\example-libuv.c",
+      "func_name": "debugCallback",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-398",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "test.c",
+      "func_name": "test_throughput",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "net.c",
+      "func_name": "redisKeepAlive",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-563",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "sockcompat.c",
+      "func_name": "win32_getsockopt",
+      "sast_vulnerable": false,
+      "llm_vulnerable": true,
+      "sast_cwes": "",
+      "llm_cwes": "CWE-476",
+      "note": "LLM only"
+    },
+    {
+      "file_path": "ssl.c",
+      "func_name": "redisSSLRead",
+      "sast_vulnerable": false,
+      "llm_vulnerable": true,
+      "sast_cwes": "",
+      "llm_cwes": "CWE-754",
+      "note": "LLM only"
+    },
+    {
+      "file_path": "read.c",
+      "func_name": "__redisReaderSetError",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-120,CWE-126",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "read.c",
+      "func_name": "redisReaderFree",
+      "sast_vulnerable": false,
+      "llm_vulnerable": true,
+      "sast_cwes": "",
+      "llm_cwes": "CWE-476",
+      "note": "LLM only"
+    },
+    {
+      "file_path": "test.c",
+      "func_name": "test_allocator_injection",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-398",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "examples\\example-redismoduleapi.c",
+      "func_name": "debugCallback",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-398",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "net.c",
+      "func_name": "redisCreateSocket",
+      "sast_vulnerable": false,
+      "llm_vulnerable": true,
+      "sast_cwes": "",
+      "llm_cwes": "CWE-772",
+      "note": "LLM only"
+    },
+    {
+      "file_path": "test.c",
+      "func_name": "unexpected_cb",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-398",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "read.c",
+      "func_name": "__redisReaderSetErrorProtocolByte",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-119",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "read.c",
+      "func_name": "redisReaderGetReply",
+      "sast_vulnerable": false,
+      "llm_vulnerable": true,
+      "sast_cwes": "",
+      "llm_cwes": "CWE-476",
+      "note": "LLM only"
+    },
+    {
+      "file_path": "test.c",
+      "func_name": "send_hello",
+      "sast_vulnerable": false,
+      "llm_vulnerable": true,
+      "sast_cwes": "",
+      "llm_cwes": "CWE-617",
+      "note": "LLM only"
+    },
+    {
+      "file_path": "test.c",
+      "func_name": "test_blocking_io_errors",
+      "sast_vulnerable": false,
+      "llm_vulnerable": true,
+      "sast_cwes": "",
+      "llm_cwes": "CWE-476",
+      "note": "LLM only"
+    },
+    {
+      "file_path": "net.c",
+      "func_name": "redisCheckConnectDone",
+      "sast_vulnerable": false,
+      "llm_vulnerable": true,
+      "sast_cwes": "",
+      "llm_cwes": "CWE-476",
+      "note": "LLM only"
+    },
+    {
+      "file_path": "sds.c",
+      "func_name": "sdsupdatelen",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-126",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "sds.c",
+      "func_name": "sdsIncrLen",
+      "sast_vulnerable": false,
+      "llm_vulnerable": true,
+      "sast_cwes": "",
+      "llm_cwes": "CWE-787",
+      "note": "LLM only"
+    },
+    {
+      "file_path": "test.c",
+      "func_name": "free_privdata",
+      "sast_vulnerable": false,
+      "llm_vulnerable": true,
+      "sast_cwes": "",
+      "llm_cwes": "CWE-476",
+      "note": "LLM only"
+    },
+    {
+      "file_path": "read.c",
+      "func_name": "processItem",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-398",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "dict.c",
+      "func_name": "dictReplace",
+      "sast_vulnerable": false,
+      "llm_vulnerable": true,
+      "sast_cwes": "",
+      "llm_cwes": "CWE-416",
+      "note": "LLM only"
+    },
+    {
+      "file_path": "net.c",
+      "func_name": "redisNetWrite",
+      "sast_vulnerable": false,
+      "llm_vulnerable": true,
+      "sast_cwes": "",
+      "llm_cwes": "CWE-252",
+      "note": "LLM only"
+    },
+    {
+      "file_path": "async.c",
+      "func_name": "redisAsyncHandleWrite",
+      "sast_vulnerable": false,
+      "llm_vulnerable": true,
+      "sast_cwes": "",
+      "llm_cwes": "CWE-476",
+      "note": "LLM only"
+    },
+    {
+      "file_path": "examples\\example-redismoduleapi.c",
+      "func_name": "getCallback",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-398",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "net.c",
+      "func_name": "redisNetRead",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "async.c",
+      "func_name": "__redisRunDisconnectCallback",
+      "sast_vulnerable": false,
+      "llm_vulnerable": true,
+      "sast_cwes": "",
+      "llm_cwes": "CWE-476",
+      "note": "LLM only"
+    },
+    {
+      "file_path": "async.c",
+      "func_name": "__redisAsyncDisconnect",
+      "sast_vulnerable": false,
+      "llm_vulnerable": true,
+      "sast_cwes": "",
+      "llm_cwes": "CWE-476",
+      "note": "LLM only"
+    },
+    {
+      "file_path": "sockcompat.c",
+      "func_name": "win32_setsockopt",
+      "sast_vulnerable": false,
+      "llm_vulnerable": true,
+      "sast_cwes": "",
+      "llm_cwes": "CWE-476",
+      "note": "LLM only"
+    },
+    {
+      "file_path": "test.c",
+      "func_name": "detect_debug_sleep",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "test.c",
+      "func_name": "as_printerr",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "read.c",
+      "func_name": "processLineItem",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-119,CWE-120,CWE-398",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "ssl.c",
+      "func_name": "redisSSLConnect",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-119",
+      "llm_cwes": "",
+      "note": "SAST only"
+    },
+    {
+      "file_path": "test.c",
+      "func_name": "push_handler",
+      "sast_vulnerable": false,
+      "llm_vulnerable": true,
+      "sast_cwes": "",
+      "llm_cwes": "CWE-476",
+      "note": "LLM only"
+    },
+    {
+      "file_path": "async.c",
+      "func_name": "__redisAsyncFree",
+      "sast_vulnerable": false,
+      "llm_vulnerable": true,
+      "sast_cwes": "",
+      "llm_cwes": "CWE-416",
+      "note": "LLM only"
+    },
+    {
+      "file_path": "sds.c",
+      "func_name": "sdsfree",
+      "sast_vulnerable": false,
+      "llm_vulnerable": true,
+      "sast_cwes": "",
+      "llm_cwes": "CWE-761",
+      "note": "LLM only"
+    },
+    {
+      "file_path": "examples\\example-qt.cpp",
+      "func_name": "getCallback",
+      "sast_vulnerable": false,
+      "llm_vulnerable": true,
+      "sast_cwes": "",
+      "llm_cwes": "CWE-476",
+      "note": "LLM only"
+    },
+    {
+      "file_path": "test.c",
+      "func_name": "get_redis_version",
+      "sast_vulnerable": true,
+      "llm_vulnerable": false,
+      "sast_cwes": "CWE-126,CWE-398",
+      "llm_cwes": "",
+      "note": "SAST only"
+    }
+  ]
+}

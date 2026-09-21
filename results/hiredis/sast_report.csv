@@ -1,0 +1,426 @@
+file_path,func_name,has_CWE,cwe_id,analyzer_message,analyzer_type,line_range
+alloc.c,hiredisResetAllocators,False,,No issues found by SAST,None,54-62
+alloc.c,hi_free,False,,No issues found by SAST,None,86-88
+async.c,__redisSetError,False,,No issues found by SAST,None,57-58
+async.c,callbackKeyCompare,False,,No issues found by SAST,None,77-85
+async.c,callbackKeyDestructor,False,,No issues found by SAST,None,87-90
+async.c,callbackValDestructor,False,,No issues found by SAST,None,92-95
+async.c,__redisAsyncCopyError,False,,No issues found by SAST,None,163-170
+async.c,redisAsyncSetConnectCallback,False,,No issues found by SAST,None,252-254
+async.c,redisAsyncSetConnectCallbackNC,False,,No issues found by SAST,None,256-258
+async.c,redisAsyncSetDisconnectCallback,False,,No issues found by SAST,None,260-266
+async.c,__redisPushCallback,True,CWE-398,Parameter 'source' can be declared as pointer to const,SAST_CPPCHECK,269-289
+async.c,__redisPushCallback,True,CWE-120,Does not check for buffer overflows when copying to destination (CWE-120).,SAST_FLAWFINDER,269-289
+async.c,__redisPushCallback,True,,memcpy,SAST_RATS,269-289
+async.c,__redisShiftCallback,True,CWE-120,Does not check for buffer overflows when copying to destination (CWE-120).,SAST_FLAWFINDER,291-305
+async.c,__redisShiftCallback,True,,memcpy,SAST_RATS,291-305
+async.c,__redisRunCallback,False,,No issues found by SAST,None,307-314
+async.c,__redisRunPushCallback,False,,No issues found by SAST,None,316-322
+async.c,__redisRunConnectCallback,False,,No issues found by SAST,None,324-345
+async.c,__redisRunDisconnectCallback,False,,No issues found by SAST,None,347-359
+async.c,__redisAsyncFree,False,,No issues found by SAST,None,362-409
+async.c,redisAsyncFree,False,,No issues found by SAST,None,415-424
+async.c,__redisAsyncDisconnect,False,,No issues found by SAST,None,427-452
+async.c,redisAsyncDisconnect,False,,No issues found by SAST,None,460-468
+async.c,__redisGetSubscribeCallback,True,CWE-398,Local variable 'cb' shadows outer variable,SAST_CPPCHECK,470-544
+async.c,__redisGetSubscribeCallback,True,CWE-120,Does not check for buffer overflows when copying to destination (CWE-120).,SAST_FLAWFINDER,470-544
+async.c,__redisGetSubscribeCallback,True,,memcpy,SAST_RATS,470-544
+async.c,redisIsSubscribeReply,False,,No issues found by SAST,None,549-568
+async.c,redisProcessCallbacks,True,,snprintf,SAST_RATS,570-662
+async.c,__redisAsyncHandleConnectFailure,False,,No issues found by SAST,None,664-667
+async.c,__redisAsyncHandleConnect,False,,No issues found by SAST,None,672-707
+async.c,redisAsyncRead,False,,No issues found by SAST,None,709-719
+async.c,redisAsyncHandleRead,False,,No issues found by SAST,None,724-739
+async.c,redisAsyncWrite,False,,No issues found by SAST,None,741-757
+async.c,redisAsyncHandleWrite,False,,No issues found by SAST,None,759-774
+async.c,redisAsyncHandleTimeout,False,,No issues found by SAST,None,776-813
+async.c,__redisAsyncCommand,False,,No issues found by SAST,None,834-968
+async.c,redisvAsyncCommand,False,,No issues found by SAST,None,970-983
+async.c,redisAsyncCommand,False,,No issues found by SAST,None,985-992
+async.c,redisAsyncCommandArgv,False,,No issues found by SAST,None,994-1004
+async.c,redisAsyncFormattedCommand,False,,No issues found by SAST,None,1006-1009
+async.c,redisAsyncSetTimeout,False,,No issues found by SAST,None,1017-1034
+dict.c,_dictExpandIfNeeded,False,,No issues found by SAST,None,300-308
+dict.c,_dictInit,False,,No issues found by SAST,None,84-89
+dict.c,_dictReset,False,,No issues found by SAST,None,66-71
+dict.c,dictExpand,False,,No issues found by SAST,None,92-138
+dict.c,dictAdd,False,,No issues found by SAST,None,141-163
+dict.c,dictReplace,False,,No issues found by SAST,None,169-191
+dict.c,dictDelete,False,,No issues found by SAST,None,194-222
+dict.c,_dictClear,False,,No issues found by SAST,None,225-247
+dict.c,dictRelease,False,,No issues found by SAST,None,250-253
+dict.c,dictInitIterator,False,,No issues found by SAST,None,270-275
+dict.c,_dictKeyIndex,False,,No issues found by SAST,None,325-342
+hiredis.c,freeReplyObject,True,CWE-398,The scope of the variable 'j' can be reduced.,SAST_CPPCHECK,91-124
+hiredis.c,bulklen,False,,No issues found by SAST,None,319-321
+hiredis.c,redisvFormatCommand,True,CWE-398,Variable 'arg' can be declared as pointer to const,SAST_CPPCHECK,323-558
+hiredis.c,redisvFormatCommand,True,CWE-664,va_list '_cpy' used before va_start() was called.,SAST_CPPCHECK,323-558
+hiredis.c,redisvFormatCommand,True,CWE-119,"Statically-sized arrays can be improperly restricted, leading to potential overflows or other issues (CWE-119!/CWE-120).",SAST_FLAWFINDER,323-558
+hiredis.c,redisvFormatCommand,True,CWE-120,Does not check for buffer overflows when copying to destination (CWE-120).,SAST_FLAWFINDER,323-558
+hiredis.c,redisvFormatCommand,True,,memcpy,SAST_RATS,323-558
+hiredis.c,redisvFormatCommand,True,CWE-120,Does not check for buffer overflows (CWE-120).,SAST_FLAWFINDER,323-558
+hiredis.c,redisvFormatCommand,True,,sprintf,SAST_RATS,323-558
+hiredis.c,redisvFormatCommand,True,CWE-126,Does not handle strings that are not \0-terminated; if given one it may perform an over-read (it could cause a crash if unprotected) (CWE-126).,SAST_FLAWFINDER,323-558
+hiredis.c,redisvFormatCommand,True,,strlen,SAST_RATS,323-558
+hiredis.c,redisFormatCommand,False,,No issues found by SAST,None,572-585
+hiredis.c,redisFreeSdsCommand,False,,No issues found by SAST,None,640-642
+hiredis.c,redisFreeCommand,False,,No issues found by SAST,None,687-689
+hiredis.c,__redisSetError,True,CWE-398,The scope of the variable 'len' can be reduced.,SAST_CPPCHECK,691-705
+hiredis.c,__redisSetError,True,CWE-120,Does not check for buffer overflows when copying to destination (CWE-120).,SAST_FLAWFINDER,691-705
+hiredis.c,__redisSetError,True,,memcpy,SAST_RATS,691-705
+hiredis.c,__redisSetError,True,CWE-126,Does not handle strings that are not \0-terminated; if given one it may perform an over-read (it could cause a crash if unprotected) (CWE-126).,SAST_FLAWFINDER,691-705
+hiredis.c,__redisSetError,True,,strlen,SAST_RATS,691-705
+hiredis.c,redisPushAutoFree,False,,No issues found by SAST,None,711-714
+hiredis.c,redisFree,False,,No issues found by SAST,None,737-762
+hiredis.c,redisReconnect,True,CWE-126,Does not handle strings that are not \0-terminated; if given one it may perform an over-read (it could cause a crash if unprotected) (CWE-126).,SAST_FLAWFINDER,771-813
+hiredis.c,redisReconnect,True,,strlen,SAST_RATS,771-813
+hiredis.c,redisSetTimeout,False,,No issues found by SAST,None,951-955
+hiredis.c,redisEnableKeepAliveWithInterval,False,,No issues found by SAST,None,957-959
+hiredis.c,redisEnableKeepAlive,False,,No issues found by SAST,None,962-964
+hiredis.c,redisSetTcpUserTimeout,False,,No issues found by SAST,None,967-969
+hiredis.c,redisBufferRead,True,CWE-119,"Statically-sized arrays can be improperly restricted, leading to potential overflows or other issues (CWE-119!/CWE-120).",SAST_FLAWFINDER,983-1000
+hiredis.c,redisBufferRead,True,,read,SAST_RATS,983-1000
+hiredis.c,redisBufferWrite,False,,No issues found by SAST,None,1011-1038
+hiredis.c,redisHandledPushReply,False,,No issues found by SAST,None,1042-1049
+hiredis.c,redisGetReplyFromReader,False,,No issues found by SAST,None,1052-1059
+hiredis.c,redisNextInBandReplyFromReader,False,,No issues found by SAST,None,1064-1071
+hiredis.c,redisGetReply,False,,No issues found by SAST,None,1073-1107
+hiredis.c,__redisAppendCommand,False,,No issues found by SAST,None,1116-1127
+hiredis.c,redisAppendFormattedCommand,False,,No issues found by SAST,None,1129-1136
+hiredis.c,redisvAppendCommand,False,,No issues found by SAST,None,1138-1158
+hiredis.c,redisAppendCommand,False,,No issues found by SAST,None,1160-1168
+hiredis.c,redisAppendCommandArgv,False,,No issues found by SAST,None,1170-1187
+net.c,__redisSetError,False,,No issues found by SAST,None,52-53
+net.c,redisContextUpdateCommandTimeout,True,CWE-120,Does not check for buffer overflows when copying to destination (CWE-120).,SAST_FLAWFINDER,431-445
+net.c,redisContextUpdateCommandTimeout,True,,memcpy,SAST_RATS,431-445
+net.c,redisNetClose,False,,No issues found by SAST,None,56-61
+net.c,redisNetRead,True,,recv,SAST_RATS,63-83
+net.c,redisNetWrite,False,,No issues found by SAST,None,85-100
+net.c,__redisSetErrorFromErrno,True,CWE-119,"Statically-sized arrays can be improperly restricted, leading to potential overflows or other issues (CWE-119!/CWE-120).",SAST_FLAWFINDER,102-111
+net.c,__redisSetErrorFromErrno,True,,snprintf,SAST_RATS,102-111
+net.c,redisSetReuseAddr,False,,No issues found by SAST,None,113-121
+net.c,redisCreateSocket,False,,No issues found by SAST,None,123-145
+net.c,redisSetBlocking,False,,No issues found by SAST,None,147-179
+net.c,redisKeepAlive,True,CWE-563,Variable 'val' is assigned a value that is never used.,SAST_CPPCHECK,181-233
+net.c,redisSetTcpNoDelay,False,,No issues found by SAST,None,235-243
+net.c,redisContextSetTcpUserTimeout,True,CWE-398,The comparison 'res == -1' is always true.,SAST_CPPCHECK,245-260
+net.c,redisContextTimeoutMsec,True,CWE-398,Comparing expression of type 'signed long' against value 2147483647. Condition is always false.,SAST_CPPCHECK,264-286
+net.c,redisPollMillis,False,,No issues found by SAST,None,288-298
+net.c,redisContextWaitReady,False,,No issues found by SAST,None,300-336
+net.c,redisCheckConnectDone,False,,No issues found by SAST,None,338-372
+net.c,redisCheckSocketError,False,,No issues found by SAST,None,374-394
+net.c,redisContextSetTimeout,False,,No issues found by SAST,None,396-413
+net.c,redisContextUpdateConnectTimeout,True,CWE-120,Does not check for buffer overflows when copying to destination (CWE-120).,SAST_FLAWFINDER,415-429
+net.c,redisContextUpdateConnectTimeout,True,,memcpy,SAST_RATS,415-429
+net.c,redisContextConnectUnix,True,CWE-398,Label 'oom' is not used. There is #if in function body so the label might be used in code that is removed by the preprocessor.,SAST_CPPCHECK,648-713
+net.c,redisContextConnectUnix,True,CWE-120,Easily used incorrectly; doesn't always \0-terminate or check for invalid pointers [MS-banned] (CWE-120).,SAST_FLAWFINDER,648-713
+net.c,redisContextConnectUnix,True,,strncpy,SAST_RATS,648-713
+read.c,__redisReaderSetError,True,CWE-120,Does not check for buffer overflows when copying to destination (CWE-120).,SAST_FLAWFINDER,74-96
+read.c,__redisReaderSetError,True,,memcpy,SAST_RATS,74-96
+read.c,__redisReaderSetError,True,CWE-126,Does not handle strings that are not \0-terminated; if given one it may perform an over-read (it could cause a crash if unprotected) (CWE-126).,SAST_FLAWFINDER,74-96
+read.c,__redisReaderSetError,True,,strlen,SAST_RATS,74-96
+read.c,chrtos,True,,snprintf,SAST_RATS,98-120
+read.c,__redisReaderSetErrorProtocolByte,True,CWE-119,"Statically-sized arrays can be improperly restricted, leading to potential overflows or other issues (CWE-119!/CWE-120).",SAST_FLAWFINDER,122-129
+read.c,__redisReaderSetErrorProtocolByte,True,,snprintf,SAST_RATS,122-129
+read.c,__redisReaderSetErrorOOM,False,,No issues found by SAST,None,131-133
+read.c,string2ll,False,,No issues found by SAST,None,183-244
+read.c,moveToNextTask,True,CWE-398,The scope of the variable 'cur' can be reduced.,SAST_CPPCHECK,261-288
+read.c,moveToNextTask,True,CWE-398,The scope of the variable 'prv' can be reduced.,SAST_CPPCHECK,261-288
+read.c,moveToNextTask,True,CWE-398,Variable 'prv' can be declared as pointer to const,SAST_CPPCHECK,261-288
+read.c,processLineItem,True,CWE-398,Casting non-zero decimal integer literal to pointer.,SAST_CPPCHECK,290-453
+read.c,processLineItem,True,CWE-119,"Statically-sized arrays can be improperly restricted, leading to potential overflows or other issues (CWE-119!/CWE-120).",SAST_FLAWFINDER,290-453
+read.c,processLineItem,True,CWE-120,Does not check for buffer overflows when copying to destination (CWE-120).,SAST_FLAWFINDER,290-453
+read.c,processLineItem,True,,memcpy,SAST_RATS,290-453
+read.c,processBulkItem,True,CWE-398,Casting non-zero decimal integer literal to pointer.,SAST_CPPCHECK,455-525
+read.c,processBulkItem,True,CWE-563,Variable 'p' is assigned an expression that holds the same value.,SAST_CPPCHECK,455-525
+read.c,processBulkItem,True,CWE-398,The scope of the variable 'bytelen' can be reduced.,SAST_CPPCHECK,455-525
+read.c,processBulkItem,True,CWE-398,The scope of the variable 'success' can be reduced.,SAST_CPPCHECK,455-525
+read.c,redisReaderGrow,False,,No issues found by SAST,None,527-550
+read.c,processAggregateItem,True,CWE-398,Casting non-zero decimal integer literal to pointer.,SAST_CPPCHECK,553-649
+read.c,processAggregateItem,True,CWE-398,The scope of the variable 'root' can be reduced.,SAST_CPPCHECK,553-649
+read.c,processAggregateItem,True,CWE-563,Variable 'root' is assigned a value that is never used.,SAST_CPPCHECK,553-649
+read.c,processAggregateItem,True,CWE-398,Variable 'p' can be declared as pointer to const,SAST_CPPCHECK,553-649
+read.c,processItem,True,CWE-398,The scope of the variable 'p' can be reduced.,SAST_CPPCHECK,651-734
+read.c,processItem,True,CWE-398,Variable 'p' can be declared as pointer to const,SAST_CPPCHECK,651-734
+read.c,redisReaderFree,False,,No issues found by SAST,None,769-787
+read.c,redisReaderFeed,False,,No issues found by SAST,None,789-818
+read.c,redisReaderGetReply,False,,No issues found by SAST,None,820-871
+sds.c,sdsfree,False,,No issues found by SAST,None,158-161
+sds.c,sdsupdatelen,True,CWE-126,Does not handle strings that are not \0-terminated; if given one it may perform an over-read (it could cause a crash if unprotected) (CWE-126).,SAST_FLAWFINDER,177-180
+sds.c,sdsupdatelen,True,,strlen,SAST_RATS,177-180
+sds.c,sdsclear,False,,No issues found by SAST,None,186-189
+sds.c,sdsAllocSize,False,,No issues found by SAST,None,283-286
+sds.c,sdsIncrLen,False,,No issues found by SAST,None,317-356
+sds.c,sdsll2str,True,CWE-398,The scope of the variable 'aux' can be reduced.,SAST_CPPCHECK,434-463
+sds.c,sdsull2str,True,CWE-398,The scope of the variable 'aux' can be reduced.,SAST_CPPCHECK,466-492
+sds.c,sdsrange,False,,No issues found by SAST,None,729-757
+sds.c,sdstolower,False,,No issues found by SAST,None,760-764
+sds.c,sdstoupper,False,,No issues found by SAST,None,767-771
+sds.c,sdscmp,False,,No issues found by SAST,None,784-794
+sds.c,sdsfreesplitres,False,,No issues found by SAST,None,862-867
+sds.c,hex_digit_to_int,False,,No issues found by SAST,None,902-922
+sds.c,sds_free,False,,No issues found by SAST,None,1116-1117
+sds.c,sdsTest,True,,syntax error,SAST_CPPCHECK,1124-1285
+sds.c,sdsTest,True,,printf,SAST_RATS,1124-1285
+sds.c,main,False,,No issues found by SAST,None,1289-1291
+sockcompat.c,_wsaErrorToErrno,False,,No issues found by SAST,None,35-95
+sockcompat.c,_updateErrno,False,,No issues found by SAST,None,97-99
+sockcompat.c,_initWinsock,False,,No issues found by SAST,None,101-113
+sockcompat.c,win32_getaddrinfo,False,,No issues found by SAST,None,115-132
+sockcompat.c,win32_freeaddrinfo,False,,No issues found by SAST,None,149-151
+sockcompat.c,win32_ioctl,False,,No issues found by SAST,None,165-169
+sockcompat.c,win32_bind,False,,No issues found by SAST,None,171-175
+sockcompat.c,win32_connect,False,,No issues found by SAST,None,177-196
+sockcompat.c,win32_getsockopt,False,,No issues found by SAST,None,198-225
+sockcompat.c,win32_setsockopt,False,,No issues found by SAST,None,227-238
+sockcompat.c,win32_close,False,,No issues found by SAST,None,240-244
+sockcompat.c,win32_recv,True,,recv,SAST_RATS,246-250
+sockcompat.c,win32_send,False,,No issues found by SAST,None,252-256
+sockcompat.c,win32_poll,False,,No issues found by SAST,None,258-262
+sockcompat.c,win32_redisKeepAlive,False,,No issues found by SAST,None,264-278
+ssl.c,__redisSetError,False,,No issues found by SAST,None,84-85
+ssl.c,sslLockInit,False,,No issues found by SAST,None,143-145
+ssl.c,sslLockAcquire,False,,No issues found by SAST,None,146-148
+ssl.c,sslLockRelease,False,,No issues found by SAST,None,149-151
+ssl.c,opensslDoLock,False,,No issues found by SAST,None,156-167
+ssl.c,initOpensslLocks,False,,No issues found by SAST,None,169-185
+ssl.c,redisInitOpenSSL,False,,No issues found by SAST,None,188-196
+ssl.c,redisFreeSSLContext,False,,No issues found by SAST,None,228-244
+ssl.c,redisSSLContextSetVerifyName,True,CWE-126,Does not handle strings that are not \0-terminated; if given one it may perform an over-read (it could cause a crash if unprotected) (CWE-126).,SAST_FLAWFINDER,273-309
+ssl.c,redisSSLContextSetVerifyName,True,,strlen,SAST_RATS,273-309
+ssl.c,redisSSLConnect,True,CWE-119,"Statically-sized arrays can be improperly restricted, leading to potential overflows or other issues (CWE-119!/CWE-120).",SAST_FLAWFINDER,439-492
+ssl.c,redisSSLConnect,True,,snprintf,SAST_RATS,439-492
+ssl.c,redisInitiateSSL,False,,No issues found by SAST,None,499-501
+ssl.c,redisInitiateSSLWithContext,False,,No issues found by SAST,None,508-542
+ssl.c,maybeCheckWant,False,,No issues found by SAST,None,544-558
+ssl.c,redisSSLFree,False,,No issues found by SAST,None,564-573
+ssl.c,redisSSLRead,False,,No issues found by SAST,None,575-615
+ssl.c,redisSSLWrite,False,,No issues found by SAST,None,617-637
+ssl.c,redisSSLAsyncRead,False,,No issues found by SAST,None,639-667
+ssl.c,redisSSLAsyncWrite,False,,No issues found by SAST,None,669-697
+test.c,millisleep,True,CWE-676,"This C routine is considered obsolete (as opposed to the shell command by the same name). The interaction of this function with SIGALRM and other timer functions such as sleep(), alarm(), setitimer(), and nanosleep() is unspecified (CWE-676).",SAST_FLAWFINDER,80-87
+test.c,get_redis_version,True,CWE-398,Variable 'e' can be declared as pointer to const,SAST_CPPCHECK,117-150
+test.c,get_redis_version,True,CWE-126,Does not handle strings that are not \0-terminated; if given one it may perform an over-read (it could cause a crash if unprotected) (CWE-126).,SAST_FLAWFINDER,117-150
+test.c,get_redis_version,True,,strlen,SAST_RATS,117-150
+test.c,get_redis_version,True,,fprintf,SAST_RATS,117-150
+test.c,send_hello,False,,No issues found by SAST,None,175-183
+test.c,send_client_tracking,False,,No issues found by SAST,None,186-192
+test.c,disconnect,False,,No issues found by SAST,None,194-210
+test.c,do_ssl_handshake,True,,printf,SAST_RATS,212-223
+test.c,do_reconnect,False,,No issues found by SAST,None,262-268
+test.c,test_format_commands,True,CWE-398,Casting non-zero decimal integer literal to pointer.,SAST_CPPCHECK,270-392
+test.c,test_format_commands,True,CWE-398,Variable 'lens' can be declared as const array,SAST_CPPCHECK,270-392
+test.c,test_format_commands,True,CWE-119,"Statically-sized arrays can be improperly restricted, leading to potential overflows or other issues (CWE-119!/CWE-120).",SAST_FLAWFINDER,270-392
+test.c,test_append_formatted_commands,False,,No issues found by SAST,None,394-414
+test.c,test_tcp_options,False,,No issues found by SAST,None,416-433
+test.c,test_unix_keepalive,False,,No issues found by SAST,None,435-451
+test.c,test_reply_reader,True,CWE-398,Casting non-zero decimal integer literal to pointer.,SAST_CPPCHECK,453-955
+test.c,test_reply_reader,True,CWE-398,Local variable 'i' shadows outer variable,SAST_CPPCHECK,453-955
+test.c,test_reply_reader,True,CWE-119,"Statically-sized arrays can be improperly restricted, leading to potential overflows or other issues (CWE-119!/CWE-120).",SAST_FLAWFINDER,453-955
+test.c,test_reply_reader,True,CWE-126,Does not handle strings that are not \0-terminated; if given one it may perform an over-read (it could cause a crash if unprotected) (CWE-126).,SAST_FLAWFINDER,453-955
+test.c,test_reply_reader,True,,strlen,SAST_RATS,453-955
+test.c,test_reply_reader,True,,snprintf,SAST_RATS,453-955
+test.c,test_free_null,False,,No issues found by SAST,None,957-968
+test.c,test_allocator_injection,True,CWE-398,Variable 'ptr' can be declared as pointer to const,SAST_CPPCHECK,994-1025
+test.c,test_allocator_injection,True,CWE-398,Variable 'c' can be declared as pointer to const,SAST_CPPCHECK,994-1025
+test.c,test_allocator_injection,True,CWE-398,Variable 'reader' can be declared as pointer to const,SAST_CPPCHECK,994-1025
+test.c,test_blocking_connection_errors,True,,printf,SAST_RATS,1028-1083
+test.c,push_handler,False,,No issues found by SAST,None,1086-1104
+test.c,push_handler_async,False,,No issues found by SAST,None,1107-1110
+test.c,test_resp3_push_handler,True,CWE-398,Assert statement modifies 'reply'.,SAST_CPPCHECK,1112-1184
+test.c,test_resp3_push_options,True,CWE-398,Assert statement modifies 'c'.,SAST_CPPCHECK,1192-1229
+test.c,test_resp3_push_options,True,CWE-398,Assert statement modifies 'ac'.,SAST_CPPCHECK,1192-1229
+test.c,free_privdata,False,,No issues found by SAST,None,1231-1234
+test.c,test_privdata_hooks,True,CWE-398,Assert statement modifies 'c'.,SAST_CPPCHECK,1236-1250
+test.c,test_blocking_connection,True,CWE-398,Variable 'argvlen' can be declared as const array,SAST_CPPCHECK,1252-1347
+test.c,test_blocking_connection,True,CWE-119,"Statically-sized arrays can be improperly restricted, leading to potential overflows or other issues (CWE-119!/CWE-120).",SAST_FLAWFINDER,1252-1347
+test.c,detect_debug_sleep,True,,fprintf,SAST_RATS,1350-1364
+test.c,test_blocking_connection_timeouts,True,CWE-126,Does not handle strings that are not \0-terminated; if given one it may perform an over-read (it could cause a crash if unprotected) (CWE-126).,SAST_FLAWFINDER,1366-1434
+test.c,test_blocking_connection_timeouts,True,,strlen,SAST_RATS,1366-1434
+test.c,test_blocking_io_errors,False,,No issues found by SAST,None,1436-1480
+test.c,test_invalid_timeout_errors,False,,No issues found by SAST,None,1482-1516
+test.c,test_throughput,True,,printf,SAST_RATS,1530-1617
+test.c,async_disconnect,False,,No issues found by SAST,None,1732-1735
+test.c,timeout_cb,True,,printf,SAST_RATS,1738-1742
+test.c,unexpected_cb,True,CWE-398,"Parameter 'privdata' can be declared as pointer to const. However it seems that 'unexpected_cb' is a callback function, if 'privdata' is declared with const you might also need to cast function pointer(s).",SAST_CPPCHECK,1745-1749
+test.c,unexpected_cb,True,,printf,SAST_RATS,1745-1749
+test.c,publish_msg,True,CWE-398,Parameter 'options' can be declared as pointer to const,SAST_CPPCHECK,1752-1759
+test.c,integer_cb,True,CWE-398,Variable 'reply' can be declared as pointer to const,SAST_CPPCHECK,1762-1768
+test.c,subscribe_cb,True,,printf,SAST_RATS,1773-1806
+test.c,array_cb,True,CWE-398,Variable 'reply' can be declared as pointer to const,SAST_CPPCHECK,1809-1815
+test.c,null_cb,True,CWE-398,"Parameter 'r' can be declared as pointer to const. However it seems that 'null_cb' is a callback function, if 'r' is declared with const you might also need to cast function pointer(s).",SAST_CPPCHECK,1818-1823
+test.c,test_pubsub_handling,False,,No issues found by SAST,None,1825-1856
+test.c,unexpected_push_cb,True,,printf,SAST_RATS,1859-1863
+test.c,test_pubsub_handling_resp3,False,,No issues found by SAST,None,1865-1906
+test.c,subscribe_with_timeout_cb,True,CWE-398,"Parameter 'r' can be declared as pointer to const. However it seems that 'null_cb' is a callback function, if 'r' is declared with const you might also need to cast function pointer(s).",SAST_CPPCHECK,1912-1944
+test.c,subscribe_with_timeout_cb,True,,printf,SAST_RATS,1912-1944
+test.c,test_command_timeout_during_pubsub,False,,No issues found by SAST,None,1946-1984
+test.c,subscribe_channel_a_cb,True,CWE-398,"Parameter 'privdata' can be declared as pointer to const. However it seems that 'unexpected_cb' is a callback function, if 'privdata' is declared with const you might also need to cast function pointer(s).",SAST_CPPCHECK,1987-2021
+test.c,subscribe_channel_a_cb,True,CWE-398,Variable 'reply' can be declared as pointer to const,SAST_CPPCHECK,1987-2021
+test.c,subscribe_channel_a_cb,True,,printf,SAST_RATS,1987-2021
+test.c,subscribe_channel_b_cb,True,CWE-398,Variable 'reply' can be declared as pointer to const,SAST_CPPCHECK,2024-2042
+test.c,subscribe_channel_b_cb,True,,printf,SAST_RATS,2024-2042
+test.c,test_pubsub_multiple_channels,False,,No issues found by SAST,None,2051-2083
+test.c,monitor_cb,True,CWE-398,Local variable 'reply' shadows outer variable,SAST_CPPCHECK,2086-2122
+test.c,test_monitor,False,,No issues found by SAST,None,2128-2159
+test.c,asCleanup,False,,No issues found by SAST,None,2192-2196
+test.c,commandCallback,True,CWE-398,Variable 'reply' can be declared as pointer to const,SAST_CPPCHECK,2229-2256
+test.c,commandCallback,True,CWE-120,Does not check for buffer overflows when copying to destination [MS-banned] (CWE-120).,SAST_FLAWFINDER,2229-2256
+test.c,commandCallback,True,,strcpy,SAST_RATS,2229-2256
+test.c,connectCallback,True,CWE-120,Does not check for buffer overflows when copying to destination [MS-banned] (CWE-120).,SAST_FLAWFINDER,2200-2218
+test.c,connectCallback,True,,strcpy,SAST_RATS,2200-2218
+test.c,disconnectCallback,True,CWE-120,Does not check for buffer overflows when copying to destination [MS-banned] (CWE-120).,SAST_FLAWFINDER,2219-2227
+test.c,disconnectCallback,True,,strcpy,SAST_RATS,2219-2227
+test.c,as_printerr,True,,printf,SAST_RATS,2298-2300
+test.c,test_async_polling,False,,No issues found by SAST,None,2308-2403
+test.c,test_ssl_verify_name,False,,No issues found by SAST,None,2448-2508
+test.c,main,True,CWE-563,Variable 'cfg.type' is reassigned a value before the old one has been used.,SAST_CPPCHECK,2511-2687
+test.c,main,True,CWE-570,Condition 'test_unix_socket' is always false,SAST_CPPCHECK,2511-2687
+test.c,main,True,CWE-362,"This usually indicates a security flaw. If an attacker can change anything along the path between the call to access() and the file's actual use (e.g., by moving files), the attacker can exploit the race condition (CWE-362/CWE-367!).",SAST_FLAWFINDER,2511-2687
+test.c,main,True,,access,SAST_RATS,2511-2687
+test.c,main,True,CWE-190,"Unless checked, the resulting number can exceed the expected range (CWE-190).",SAST_FLAWFINDER,2511-2687
+test.c,main,True,,fprintf,SAST_RATS,2511-2687
+test.c,main,True,,signal,SAST_RATS,2511-2687
+test.c,main,True,,printf,SAST_RATS,2511-2687
+examples\example-ae.c,getCallback,True,CWE-398,"Parameter 'privdata' can be declared as pointer to const. However it seems that 'getCallback' is a callback function, if 'privdata' is declared with const you might also need to cast function pointer(s).",SAST_CPPCHECK,13-20
+examples\example-ae.c,getCallback,True,CWE-398,Variable 'reply' can be declared as pointer to const,SAST_CPPCHECK,13-20
+examples\example-ae.c,getCallback,True,,printf,SAST_RATS,13-20
+examples\example-ae.c,connectCallback,True,,printf,SAST_RATS,22-30
+examples\example-ae.c,disconnectCallback,True,,printf,SAST_RATS,32-41
+examples\example-ae.c,main,True,CWE-398,"Parameter 'privdata' can be declared as pointer to const. However it seems that 'getCallback' is a callback function, if 'privdata' is declared with const you might also need to cast function pointer(s).",SAST_CPPCHECK,43-61
+examples\example-ae.c,main,True,CWE-126,Does not handle strings that are not \0-terminated; if given one it may perform an over-read (it could cause a crash if unprotected) (CWE-126).,SAST_FLAWFINDER,43-61
+examples\example-ae.c,main,True,,strlen,SAST_RATS,43-61
+examples\example-ae.c,main,True,,signal,SAST_RATS,43-61
+examples\example-ae.c,main,True,,printf,SAST_RATS,43-61
+examples\example-ivykis.c,getCallback,True,CWE-398,"Parameter 'privdata' can be declared as pointer to const. However it seems that 'getCallback' is a callback function, if 'privdata' is declared with const you might also need to cast function pointer(s).",SAST_CPPCHECK,10-17
+examples\example-ivykis.c,getCallback,True,CWE-398,Variable 'reply' can be declared as pointer to const,SAST_CPPCHECK,10-17
+examples\example-ivykis.c,getCallback,True,,printf,SAST_RATS,10-17
+examples\example-ivykis.c,connectCallback,True,,printf,SAST_RATS,19-25
+examples\example-ivykis.c,disconnectCallback,True,,printf,SAST_RATS,27-33
+examples\example-ivykis.c,main,True,CWE-398,"Parameter 'privdata' can be declared as pointer to const. However it seems that 'getCallback' is a callback function, if 'privdata' is declared with const you might also need to cast function pointer(s).",SAST_CPPCHECK,35-60
+examples\example-ivykis.c,main,True,CWE-126,Does not handle strings that are not \0-terminated; if given one it may perform an over-read (it could cause a crash if unprotected) (CWE-126).,SAST_FLAWFINDER,35-60
+examples\example-ivykis.c,main,True,,strlen,SAST_RATS,35-60
+examples\example-ivykis.c,main,True,,signal,SAST_RATS,35-60
+examples\example-ivykis.c,main,True,,printf,SAST_RATS,35-60
+examples\example-libev.c,getCallback,True,,printf,SAST_RATS,10-17
+examples\example-libev.c,connectCallback,True,,printf,SAST_RATS,19-25
+examples\example-libev.c,disconnectCallback,True,,printf,SAST_RATS,27-33
+examples\example-libev.c,main,True,,There is an unknown macro here somewhere. Configuration is required. If EV_DEFAULT_ is a macro then please configure it.,SAST_CPPCHECK,35-54
+examples\example-libev.c,main,True,CWE-126,Does not handle strings that are not \0-terminated; if given one it may perform an over-read (it could cause a crash if unprotected) (CWE-126).,SAST_FLAWFINDER,35-54
+examples\example-libev.c,main,True,,strlen,SAST_RATS,35-54
+examples\example-libev.c,main,True,,signal,SAST_RATS,35-54
+examples\example-libev.c,main,True,,printf,SAST_RATS,35-54
+examples\example-libevent-ssl.c,getCallback,True,CWE-398,"Parameter 'privdata' can be declared as pointer to const. However it seems that 'getCallback' is a callback function, if 'privdata' is declared with const you might also need to cast function pointer(s).",SAST_CPPCHECK,11-18
+examples\example-libevent-ssl.c,getCallback,True,CWE-398,Variable 'reply' can be declared as pointer to const,SAST_CPPCHECK,11-18
+examples\example-libevent-ssl.c,getCallback,True,,printf,SAST_RATS,11-18
+examples\example-libevent-ssl.c,connectCallback,True,,printf,SAST_RATS,20-26
+examples\example-libevent-ssl.c,disconnectCallback,True,,printf,SAST_RATS,28-34
+examples\example-libevent-ssl.c,main,True,CWE-398,"Parameter 'privdata' can be declared as pointer to const. However it seems that 'getCallback' is a callback function, if 'privdata' is declared with const you might also need to cast function pointer(s).",SAST_CPPCHECK,36-90
+examples\example-libevent-ssl.c,main,True,CWE-190,"Unless checked, the resulting number can exceed the expected range (CWE-190).",SAST_FLAWFINDER,36-90
+examples\example-libevent-ssl.c,main,True,CWE-126,Does not handle strings that are not \0-terminated; if given one it may perform an over-read (it could cause a crash if unprotected) (CWE-126).,SAST_FLAWFINDER,36-90
+examples\example-libevent-ssl.c,main,True,,strlen,SAST_RATS,36-90
+examples\example-libevent-ssl.c,main,True,,signal,SAST_RATS,36-90
+examples\example-libevent-ssl.c,main,True,,fprintf,SAST_RATS,36-90
+examples\example-libevent-ssl.c,main,True,,printf,SAST_RATS,36-90
+examples\example-libevent.c,getCallback,True,CWE-398,"Parameter 'privdata' can be declared as pointer to const. However it seems that 'getCallback' is a callback function, if 'privdata' is declared with const you might also need to cast function pointer(s).",SAST_CPPCHECK,10-22
+examples\example-libevent.c,getCallback,True,CWE-398,Variable 'reply' can be declared as pointer to const,SAST_CPPCHECK,10-22
+examples\example-libevent.c,getCallback,True,,printf,SAST_RATS,10-22
+examples\example-libevent.c,connectCallback,True,,printf,SAST_RATS,24-30
+examples\example-libevent.c,disconnectCallback,True,,printf,SAST_RATS,32-38
+examples\example-libevent.c,main,True,CWE-398,"Parameter 'privdata' can be declared as pointer to const. However it seems that 'getCallback' is a callback function, if 'privdata' is declared with const you might also need to cast function pointer(s).",SAST_CPPCHECK,40-67
+examples\example-libevent.c,main,True,CWE-126,Does not handle strings that are not \0-terminated; if given one it may perform an over-read (it could cause a crash if unprotected) (CWE-126).,SAST_FLAWFINDER,40-67
+examples\example-libevent.c,main,True,,strlen,SAST_RATS,40-67
+examples\example-libevent.c,main,True,,signal,SAST_RATS,40-67
+examples\example-libevent.c,main,True,,printf,SAST_RATS,40-67
+examples\example-libhv.c,getCallback,True,CWE-398,"Parameter 'privdata' can be declared as pointer to const. However it seems that 'getCallback' is a callback function, if 'privdata' is declared with const you might also need to cast function pointer(s).",SAST_CPPCHECK,10-17
+examples\example-libhv.c,getCallback,True,CWE-398,Variable 'reply' can be declared as pointer to const,SAST_CPPCHECK,10-17
+examples\example-libhv.c,getCallback,True,,printf,SAST_RATS,10-17
+examples\example-libhv.c,debugCallback,True,CWE-398,Variable 'reply' can be declared as pointer to const,SAST_CPPCHECK,19-29
+examples\example-libhv.c,debugCallback,True,,printf,SAST_RATS,19-29
+examples\example-libhv.c,connectCallback,True,,printf,SAST_RATS,31-37
+examples\example-libhv.c,disconnectCallback,True,,printf,SAST_RATS,39-45
+examples\example-libhv.c,main,True,CWE-398,"Parameter 'privdata' can be declared as pointer to const. However it seems that 'getCallback' is a callback function, if 'privdata' is declared with const you might also need to cast function pointer(s).",SAST_CPPCHECK,47-70
+examples\example-libhv.c,main,True,CWE-126,Does not handle strings that are not \0-terminated; if given one it may perform an over-read (it could cause a crash if unprotected) (CWE-126).,SAST_FLAWFINDER,47-70
+examples\example-libhv.c,main,True,,strlen,SAST_RATS,47-70
+examples\example-libhv.c,main,True,,signal,SAST_RATS,47-70
+examples\example-libhv.c,main,True,,printf,SAST_RATS,47-70
+examples\example-libsdevent.c,debugCallback,True,CWE-398,Variable 'reply' can be declared as pointer to const,SAST_CPPCHECK,10-20
+examples\example-libsdevent.c,debugCallback,True,,printf,SAST_RATS,10-20
+examples\example-libsdevent.c,getCallback,True,CWE-398,"Parameter 'privdata' can be declared as pointer to const. However it seems that 'getCallback' is a callback function, if 'privdata' is declared with const you might also need to cast function pointer(s).",SAST_CPPCHECK,22-32
+examples\example-libsdevent.c,getCallback,True,CWE-398,Variable 'reply' can be declared as pointer to const,SAST_CPPCHECK,22-32
+examples\example-libsdevent.c,getCallback,True,,printf,SAST_RATS,22-32
+examples\example-libsdevent.c,connectCallback,True,,printf,SAST_RATS,34-40
+examples\example-libsdevent.c,disconnectCallback,True,,printf,SAST_RATS,42-48
+examples\example-libsdevent.c,main,True,CWE-398,"Parameter 'privdata' can be declared as pointer to const. However it seems that 'getCallback' is a callback function, if 'privdata' is declared with const you might also need to cast function pointer(s).",SAST_CPPCHECK,50-86
+examples\example-libsdevent.c,main,True,CWE-126,Does not handle strings that are not \0-terminated; if given one it may perform an over-read (it could cause a crash if unprotected) (CWE-126).,SAST_FLAWFINDER,50-86
+examples\example-libsdevent.c,main,True,,strlen,SAST_RATS,50-86
+examples\example-libsdevent.c,main,True,,signal,SAST_RATS,50-86
+examples\example-libsdevent.c,main,True,,printf,SAST_RATS,50-86
+examples\example-libuv.c,debugCallback,True,CWE-398,Variable 'reply' can be declared as pointer to const,SAST_CPPCHECK,10-20
+examples\example-libuv.c,debugCallback,True,,printf,SAST_RATS,10-20
+examples\example-libuv.c,getCallback,True,CWE-398,"Parameter 'privdata' can be declared as pointer to const. However it seems that 'getCallback' is a callback function, if 'privdata' is declared with const you might also need to cast function pointer(s).",SAST_CPPCHECK,22-32
+examples\example-libuv.c,getCallback,True,CWE-398,Variable 'reply' can be declared as pointer to const,SAST_CPPCHECK,22-32
+examples\example-libuv.c,getCallback,True,,printf,SAST_RATS,22-32
+examples\example-libuv.c,connectCallback,True,,printf,SAST_RATS,34-40
+examples\example-libuv.c,disconnectCallback,True,,printf,SAST_RATS,42-48
+examples\example-libuv.c,main,True,CWE-398,"Parameter 'privdata' can be declared as pointer to const. However it seems that 'getCallback' is a callback function, if 'privdata' is declared with const you might also need to cast function pointer(s).",SAST_CPPCHECK,50-81
+examples\example-libuv.c,main,True,CWE-126,Does not handle strings that are not \0-terminated; if given one it may perform an over-read (it could cause a crash if unprotected) (CWE-126).,SAST_FLAWFINDER,50-81
+examples\example-libuv.c,main,True,,strlen,SAST_RATS,50-81
+examples\example-libuv.c,main,True,,signal,SAST_RATS,50-81
+examples\example-libuv.c,main,True,,printf,SAST_RATS,50-81
+examples\example-macosx.c,getCallback,True,CWE-398,"Parameter 'privdata' can be declared as pointer to const. However it seems that 'getCallback' is a callback function, if 'privdata' is declared with const you might also need to cast function pointer(s).",SAST_CPPCHECK,40-47
+examples\example-macosx.c,getCallback,True,CWE-398,Variable 'reply' can be declared as pointer to const,SAST_CPPCHECK,40-47
+examples\example-macosx.c,getCallback,True,,printf,SAST_RATS,40-47
+examples\example-macosx.c,connectCallback,True,,printf,SAST_RATS,49-55
+examples\example-macosx.c,disconnectCallback,True,,printf,SAST_RATS,57-64
+examples\example-macosx.c,main,True,CWE-398,"Parameter 'privdata' can be declared as pointer to const. However it seems that 'getCallback' is a callback function, if 'privdata' is declared with const you might also need to cast function pointer(s).",SAST_CPPCHECK,66-93
+examples\example-macosx.c,main,True,CWE-126,Does not handle strings that are not \0-terminated; if given one it may perform an over-read (it could cause a crash if unprotected) (CWE-126).,SAST_FLAWFINDER,66-93
+examples\example-macosx.c,main,True,,strlen,SAST_RATS,66-93
+examples\example-macosx.c,main,True,,signal,SAST_RATS,66-93
+examples\example-macosx.c,main,True,,printf,SAST_RATS,66-93
+examples\example-poll.c,getCallback,True,CWE-398,"Parameter 'privdata' can be declared as pointer to const. However it seems that 'getCallback' is a callback function, if 'privdata' is declared with const you might also need to cast function pointer(s).",SAST_CPPCHECK,13-20
+examples\example-poll.c,getCallback,True,CWE-398,Variable 'reply' can be declared as pointer to const,SAST_CPPCHECK,13-20
+examples\example-poll.c,getCallback,True,,printf,SAST_RATS,13-20
+examples\example-poll.c,connectCallback,True,,printf,SAST_RATS,22-30
+examples\example-poll.c,disconnectCallback,True,,printf,SAST_RATS,32-40
+examples\example-poll.c,main,True,CWE-398,"Parameter 'privdata' can be declared as pointer to const. However it seems that 'getCallback' is a callback function, if 'privdata' is declared with const you might also need to cast function pointer(s).",SAST_CPPCHECK,42-62
+examples\example-poll.c,main,True,CWE-126,Does not handle strings that are not \0-terminated; if given one it may perform an over-read (it could cause a crash if unprotected) (CWE-126).,SAST_FLAWFINDER,42-62
+examples\example-poll.c,main,True,,strlen,SAST_RATS,42-62
+examples\example-poll.c,main,True,,signal,SAST_RATS,42-62
+examples\example-poll.c,main,True,,printf,SAST_RATS,42-62
+examples\example-push.c,assertReplyAndFree,True,CWE-398,Parameter 'context' can be declared as pointer to const,SAST_CPPCHECK,43-55
+examples\example-push.c,assertReplyAndFree,True,,fprintf,SAST_RATS,43-55
+examples\example-push.c,enableClientTracking,True,,fprintf,SAST_RATS,58-76
+examples\example-push.c,pushReplyHandler,True,,printf,SAST_RATS,78-97
+examples\example-push.c,privdata_dtor,True,CWE-398,Variable 'icount' can be declared as pointer to const,SAST_CPPCHECK,101-104
+examples\example-push.c,privdata_dtor,True,,printf,SAST_RATS,101-104
+examples\example-push.c,main,True,CWE-686,%d in format string (no. 1) requires 'int' but the argument type is 'unsigned int'.,SAST_CPPCHECK,106-159
+examples\example-push.c,main,True,CWE-686,%d in format string (no. 2) requires 'int' but the argument type is 'unsigned int'.,SAST_CPPCHECK,106-159
+examples\example-push.c,main,True,,printf,SAST_RATS,106-159
+examples\example-push.c,main,True,CWE-190,"Unless checked, the resulting number can exceed the expected range (CWE-190).",SAST_FLAWFINDER,106-159
+examples\example-qt.cpp,getCallback,False,,No issues found by SAST,None,9-18
+examples\example-qt.cpp,main,False,,No issues found by SAST,None,36-46
+examples\example-redismoduleapi.c,debugCallback,True,CWE-398,Variable 'reply' can be declared as pointer to const,SAST_CPPCHECK,10-20
+examples\example-redismoduleapi.c,debugCallback,True,,printf,SAST_RATS,10-20
+examples\example-redismoduleapi.c,getCallback,True,CWE-398,"Parameter 'privdata' can be declared as pointer to const. However it seems that 'getCallback' is a callback function, if 'privdata' is declared with const you might also need to cast function pointer(s).",SAST_CPPCHECK,22-34
+examples\example-redismoduleapi.c,getCallback,True,CWE-398,Variable 'reply' can be declared as pointer to const,SAST_CPPCHECK,22-34
+examples\example-redismoduleapi.c,getCallback,True,,printf,SAST_RATS,22-34
+examples\example-redismoduleapi.c,connectCallback,True,,printf,SAST_RATS,36-42
+examples\example-redismoduleapi.c,disconnectCallback,True,,printf,SAST_RATS,44-50
+examples\example-redismoduleapi.c,RedisModule_OnLoad,True,CWE-398,"Parameter 'privdata' can be declared as pointer to const. However it seems that 'getCallback' is a callback function, if 'privdata' is declared with const you might also need to cast function pointer(s).",SAST_CPPCHECK,62-101
+examples\example-redismoduleapi.c,RedisModule_OnLoad,True,,printf,SAST_RATS,62-101
+examples\example-ssl.c,main,True,CWE-571,Condition 'argc>1' is always true,SAST_CPPCHECK,12-112
+examples\example-ssl.c,main,True,CWE-190,"Unless checked, the resulting number can exceed the expected range (CWE-190).",SAST_FLAWFINDER,12-112
+examples\example-ssl.c,main,True,CWE-119,"Statically-sized arrays can be improperly restricted, leading to potential overflows or other issues (CWE-119!/CWE-120).",SAST_FLAWFINDER,12-112
+examples\example-ssl.c,main,True,,printf,SAST_RATS,12-112
+examples\example-ssl.c,main,True,,snprintf,SAST_RATS,12-112
+examples\example.c,example_argv_command,True,CWE-476,"If memory allocation fails, then there is a possible null pointer dereference: argv",SAST_CPPCHECK,10-56
+examples\example.c,example_argv_command,True,CWE-476,"If memory allocation fails, then there is a possible null pointer dereference: argvlen",SAST_CPPCHECK,10-56
+examples\example.c,example_argv_command,True,,snprintf,SAST_RATS,10-56
+examples\example.c,example_argv_command,True,CWE-119,"Statically-sized arrays can be improperly restricted, leading to potential overflows or other issues (CWE-119!/CWE-120).",SAST_FLAWFINDER,10-56
+examples\example.c,example_argv_command,True,,fprintf,SAST_RATS,10-56
+examples\example.c,example_argv_command,True,,printf,SAST_RATS,10-56
+examples\example.c,main,True,CWE-190,"Unless checked, the resulting number can exceed the expected range (CWE-190).",SAST_FLAWFINDER,58-145
+examples\example.c,main,True,CWE-119,"Statically-sized arrays can be improperly restricted, leading to potential overflows or other issues (CWE-119!/CWE-120).",SAST_FLAWFINDER,58-145
+examples\example.c,main,True,,printf,SAST_RATS,58-145
+examples\example.c,main,True,,snprintf,SAST_RATS,58-145

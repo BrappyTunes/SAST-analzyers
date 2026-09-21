@@ -1,0 +1,219 @@
+file_path,func_name,has_CWE,cwe_id,analyzer_message,analyzer_type,line_range
+crc32.c,main,False,,No issues found by SAST,None,449-452
+inftrees.c,inflate_fixed,False,,No issues found by SAST,None,364-372
+inftrees.c,main,True,CWE-686,%u in format string (no. 1) requires 'unsigned int' but the argument type is 'signed int'.,SAST_CPPCHECK,386-423
+inftrees.c,main,True,,printf,SAST_RATS,386-423
+contrib\blast\blast-test.c,main,True,CWE-398,"Parameter 'buf' can be declared as pointer to const. However it seems that 'outf' is a callback function, if 'buf' is declared with const you might also need to cast function pointer(s).",SAST_CPPCHECK,23-42
+contrib\blast\blast-test.c,main,True,CWE-120,"Check buffer boundaries if used in a loop including recursive loops (CWE-120, CWE-20).",SAST_FLAWFINDER,23-42
+contrib\blast\blast-test.c,main,True,,getchar,SAST_RATS,23-42
+contrib\blast\blast-test.c,main,True,,fprintf,SAST_RATS,23-42
+contrib\infback9\infback9.c,makefixed9,True,,printf,SAST_RATS,50-106
+contrib\iostream\test.cpp,main,False,,No issues found by SAST,None,4-24
+contrib\iostream2\zstream_test.cpp,main,True,CWE-398,Variable 'h' can be declared as const array,SAST_CPPCHECK,6-25
+contrib\iostream2\zstream_test.cpp,main,True,CWE-119,"Statically-sized arrays can be improperly restricted, leading to potential overflows or other issues (CWE-119!/CWE-120).",SAST_FLAWFINDER,6-25
+contrib\iostream2\zstream_test.cpp,main,True,CWE-398,Variable 'g' can be declared as pointer to const,SAST_CPPCHECK,6-25
+contrib\iostream2\zstream_test.cpp,main,True,CWE-398,Variable 'z' can be declared as const array,SAST_CPPCHECK,6-25
+contrib\iostream2\zstream_test.cpp,main,True,CWE-665,Variable 'z' is not assigned a value.,SAST_CPPCHECK,6-25
+contrib\iostream2\zstream_test.cpp,main,True,,open,SAST_RATS,6-25
+contrib\iostream3\test.cc,main,True,CWE-119,"Statically-sized arrays can be improperly restricted, leading to potential overflows or other issues (CWE-119!/CWE-120).",SAST_FLAWFINDER,11-50
+contrib\iostream3\test.cc,main,True,,open,SAST_RATS,11-50
+contrib\minizip\ioapi.c,call_zseek64,False,,No issues found by SAST,None,40-51
+contrib\minizip\ioapi.c,fill_zlib_filefunc64_32_def_from_filefunc32,False,,No issues found by SAST,None,66-78
+contrib\minizip\ioapi.c,fill_fopen_filefunc,False,,No issues found by SAST,None,211-220
+contrib\minizip\ioapi.c,fill_fopen64_filefunc,False,,No issues found by SAST,None,222-231
+contrib\minizip\iowin32.c,fill_win32_filefunc,False,,No issues found by SAST,None,403-412
+contrib\minizip\iowin32.c,fill_win32_filefunc64,False,,No issues found by SAST,None,414-423
+contrib\minizip\iowin32.c,fill_win32_filefunc64A,False,,No issues found by SAST,None,426-435
+contrib\minizip\iowin32.c,fill_win32_filefunc64W,False,,No issues found by SAST,None,438-447
+contrib\minizip\miniunz.c,change_file_date,False,,No issues found by SAST,None,86-121
+contrib\minizip\miniunz.c,mymkdir,True,CWE-571,Condition 'mymkdir(buffer)==0' is always true,SAST_CPPCHECK,127-137
+contrib\minizip\miniunz.c,mymkdir,True,CWE-570,Condition 'mymkdir(buffer)==-1' is always false,SAST_CPPCHECK,127-137
+contrib\minizip\miniunz.c,mymkdir,True,,mkdir,SAST_RATS,127-137
+contrib\minizip\miniunz.c,makedir,True,CWE-571,Condition 'mymkdir(buffer)==0' is always true,SAST_CPPCHECK,139-185
+contrib\minizip\miniunz.c,makedir,True,CWE-570,Condition 'mymkdir(buffer)==-1' is always false,SAST_CPPCHECK,139-185
+contrib\minizip\miniunz.c,makedir,True,CWE-120,Does not check for buffer overflows when copying to destination (CWE-120).,SAST_FLAWFINDER,139-185
+contrib\minizip\miniunz.c,makedir,True,,memcpy,SAST_RATS,139-185
+contrib\minizip\miniunz.c,makedir,True,CWE-126,Does not handle strings that are not \0-terminated; if given one it may perform an over-read (it could cause a crash if unprotected) (CWE-126).,SAST_FLAWFINDER,139-185
+contrib\minizip\miniunz.c,makedir,True,,strlen,SAST_RATS,139-185
+contrib\minizip\miniunz.c,makedir,True,,printf,SAST_RATS,139-185
+contrib\minizip\miniunz.c,do_banner,True,,printf,SAST_RATS,187-190
+contrib\minizip\miniunz.c,do_help,True,,printf,SAST_RATS,192-201
+contrib\minizip\miniunz.c,Display64BitsSize,True,CWE-119,"Statically-sized arrays can be improperly restricted, leading to potential overflows or other issues (CWE-119!/CWE-120).",SAST_FLAWFINDER,203-228
+contrib\minizip\miniunz.c,Display64BitsSize,True,,printf,SAST_RATS,203-228
+contrib\minizip\miniunz.c,do_list,True,CWE-119,"Statically-sized arrays can be improperly restricted, leading to potential overflows or other issues (CWE-119!/CWE-120).",SAST_FLAWFINDER,230-303
+contrib\minizip\miniunz.c,do_list,True,,printf,SAST_RATS,230-303
+contrib\minizip\miniunz.c,do_extract_currentfile,True,CWE-563,Variable '*(filename_withoutpath-1)' is reassigned a value before the old one has been used.,SAST_CPPCHECK,306-474
+contrib\minizip\miniunz.c,do_extract_currentfile,True,CWE-398,The scope of the variable 'fout' can be reduced.,SAST_CPPCHECK,306-474
+contrib\minizip\miniunz.c,do_extract_currentfile,True,CWE-119,"Statically-sized arrays can be improperly restricted, leading to potential overflows or other issues (CWE-119!/CWE-120).",SAST_FLAWFINDER,306-474
+contrib\minizip\miniunz.c,do_extract_currentfile,True,CWE-120,It's unclear if the %s limit in the format string is small enough (CWE-120).,SAST_FLAWFINDER,306-474
+contrib\minizip\miniunz.c,do_extract_currentfile,True,,scanf,SAST_RATS,306-474
+contrib\minizip\miniunz.c,do_extract_currentfile,True,,printf,SAST_RATS,306-474
+contrib\minizip\miniunz.c,do_extract,True,,printf,SAST_RATS,477-509
+contrib\minizip\miniunz.c,do_extract_onefile,True,,printf,SAST_RATS,511-521
+contrib\minizip\miniunz.c,main,True,CWE-398,Parameter 'argv' can be declared as const array,SAST_CPPCHECK,524-647
+contrib\minizip\miniunz.c,main,True,CWE-119,"Statically-sized arrays can be improperly restricted, leading to potential overflows or other issues (CWE-119!/CWE-120).",SAST_FLAWFINDER,524-647
+contrib\minizip\miniunz.c,main,True,CWE-120,Does not check for buffer overflows when concatenating to destination [MS-banned] (CWE-120).,SAST_FLAWFINDER,524-647
+contrib\minizip\miniunz.c,main,True,,strcat,SAST_RATS,524-647
+contrib\minizip\miniunz.c,main,True,CWE-120,Easily used incorrectly; doesn't always \0-terminate or check for invalid pointers [MS-banned] (CWE-120).,SAST_FLAWFINDER,524-647
+contrib\minizip\miniunz.c,main,True,,strncpy,SAST_RATS,524-647
+contrib\minizip\miniunz.c,main,True,,printf,SAST_RATS,524-647
+contrib\minizip\minizip.c,filetime,False,,No issues found by SAST,None,142-147
+contrib\minizip\minizip.c,check_exist_file,False,,No issues found by SAST,None,153-162
+contrib\minizip\minizip.c,do_banner,True,,printf,SAST_RATS,164-167
+contrib\minizip\minizip.c,do_help,True,,printf,SAST_RATS,169-177
+contrib\minizip\minizip.c,getFileCrc,True,CWE-398,The scope of the variable 'size_read' can be reduced.,SAST_CPPCHECK,181-217
+contrib\minizip\minizip.c,getFileCrc,True,,fread,SAST_RATS,181-217
+contrib\minizip\minizip.c,getFileCrc,True,,printf,SAST_RATS,181-217
+contrib\minizip\minizip.c,isLargeFile,True,CWE-398,The scope of the variable 'pos' can be reduced.,SAST_CPPCHECK,219-238
+contrib\minizip\minizip.c,isLargeFile,True,CWE-563,Variable 'pos' is assigned a value that is never used.,SAST_CPPCHECK,219-238
+contrib\minizip\minizip.c,isLargeFile,True,,printf,SAST_RATS,219-238
+contrib\minizip\minizip.c,main,True,CWE-563,Variable 'err' is reassigned a value before the old one has been used.,SAST_CPPCHECK,240-511
+contrib\minizip\minizip.c,main,True,CWE-398,The scope of the variable 'size_read' can be reduced.,SAST_CPPCHECK,240-511
+contrib\minizip\minizip.c,main,True,CWE-398,Parameter 'argv' can be declared as const array,SAST_CPPCHECK,240-511
+contrib\minizip\minizip.c,main,True,CWE-119,"Statically-sized arrays can be improperly restricted, leading to potential overflows or other issues (CWE-119!/CWE-120).",SAST_FLAWFINDER,240-511
+contrib\minizip\minizip.c,main,True,CWE-120,Does not check for buffer overflows when concatenating to destination [MS-banned] (CWE-120).,SAST_FLAWFINDER,240-511
+contrib\minizip\minizip.c,main,True,,strcat,SAST_RATS,240-511
+contrib\minizip\minizip.c,main,True,CWE-120,Easily used incorrectly; doesn't always \0-terminate or check for invalid pointers [MS-banned] (CWE-120).,SAST_FLAWFINDER,240-511
+contrib\minizip\minizip.c,main,True,,strncpy,SAST_RATS,240-511
+contrib\minizip\minizip.c,main,True,CWE-126,Does not handle strings that are not \0-terminated; if given one it may perform an over-read (it could cause a crash if unprotected) (CWE-126).,SAST_FLAWFINDER,240-511
+contrib\minizip\minizip.c,main,True,,strlen,SAST_RATS,240-511
+contrib\minizip\minizip.c,main,True,CWE-120,It's unclear if the %s limit in the format string is small enough (CWE-120).,SAST_FLAWFINDER,240-511
+contrib\minizip\minizip.c,main,True,,scanf,SAST_RATS,240-511
+contrib\minizip\minizip.c,main,True,,printf,SAST_RATS,240-511
+contrib\minizip\minizip.c,main,True,,fread,SAST_RATS,240-511
+contrib\puff\bin-writer.c,main,True,CWE-119,"Statically-sized arrays can be improperly restricted, leading to potential overflows or other issues (CWE-119!/CWE-120).",SAST_FLAWFINDER,9-26
+contrib\puff\bin-writer.c,main,True,CWE-120,"Check buffer boundaries if used in a loop including recursive loops (CWE-120, CWE-20).",SAST_FLAWFINDER,9-26
+contrib\puff\bin-writer.c,main,True,,getchar,SAST_RATS,9-26
+contrib\puff\pufftest.c,main,True,CWE-686,%d in format string (no. 1) requires 'int' but the argument type is 'unsigned int'.,SAST_CPPCHECK,91-168
+contrib\puff\pufftest.c,main,True,,fprintf,SAST_RATS,91-168
+contrib\puff\pufftest.c,main,True,CWE-686,%lu in format string (no. 1) requires 'unsigned long' but the argument type is 'size_t {aka unsigned long long}'.,SAST_CPPCHECK,91-168
+contrib\puff\pufftest.c,main,True,CWE-398,The scope of the variable 'dest' can be reduced.,SAST_CPPCHECK,91-168
+contrib\puff\pufftest.c,main,True,CWE-398,Variable 'name' can be declared as pointer to const,SAST_CPPCHECK,91-168
+contrib\puff\pufftest.c,main,True,CWE-190,"Unless checked, the resulting number can exceed the expected range (CWE-190).",SAST_FLAWFINDER,91-168
+contrib\testzlib\testzlib.c,MyDoMinus64,False,,No issues found by SAST,None,8-18
+contrib\testzlib\testzlib.c,BeginCountRdtsc,True,CWE-398,Parameter 'pbeginTime64' can be declared as pointer to const,SAST_CPPCHECK,71-73
+contrib\testzlib\testzlib.c,myGetRDTSC32,True,CWE-398,Parameter 'pbeginTime64' can be declared as pointer to const,SAST_CPPCHECK,67-69
+contrib\testzlib\testzlib.c,BeginCountPerfCounter,False,,No issues found by SAST,None,84-91
+contrib\testzlib\testzlib.c,ReadFileMemory,True,CWE-362,"Check when opening files - can an attacker redirect it (via symlinks), force the opening of special file type (e.g., device files), move things around to create a race condition, control its ancestors, or change its contents? (CWE-362).",SAST_FLAWFINDER,119-143
+contrib\testzlib\testzlib.c,ReadFileMemory,True,,fopen,SAST_RATS,119-143
+contrib\testzlib\testzlib.c,ReadFileMemory,True,,fread,SAST_RATS,119-143
+contrib\testzlib\testzlib.c,main,True,CWE-686,%u in format string (no. 1) requires 'unsigned int' but the argument type is 'signed long'.,SAST_CPPCHECK,145-275
+contrib\testzlib\testzlib.c,main,True,CWE-686,%u in format string (no. 2) requires 'unsigned int' but the argument type is 'signed int'.,SAST_CPPCHECK,145-275
+contrib\testzlib\testzlib.c,main,True,,printf,SAST_RATS,145-275
+contrib\testzlib\testzlib.c,main,True,CWE-563,Variable 'lCompressedSize' is assigned a value that is never used.,SAST_CPPCHECK,145-275
+contrib\testzlib\testzlib.c,main,True,CWE-563,Variable 'lOrigDone' is assigned a value that is never used.,SAST_CPPCHECK,145-275
+contrib\testzlib\testzlib.c,main,True,CWE-190,"Unless checked, the resulting number can exceed the expected range (CWE-190).",SAST_FLAWFINDER,145-275
+contrib\testzlib\testzlib.c,main,True,,realloc,SAST_RATS,145-275
+examples\enough.c,main,True,CWE-190,"Unless checked, the resulting number can exceed the expected range (CWE-190).",SAST_FLAWFINDER,498-597
+examples\enough.c,main,True,,fprintf,SAST_RATS,498-597
+examples\enough.c,main,True,,printf,SAST_RATS,498-597
+examples\fitblk.c,main,True,,fprintf,SAST_RATS,127-233
+examples\gun.c,main,True,CWE-570,Condition 'test' is always false,SAST_CPPCHECK,631-702
+examples\gun.c,main,True,CWE-571,Condition 'outname!=NULL' is always true,SAST_CPPCHECK,631-702
+examples\gun.c,main,True,CWE-398,The scope of the variable 'len' can be reduced.,SAST_CPPCHECK,631-702
+examples\gun.c,main,True,CWE-120,Does not check for buffer overflows when copying to destination (CWE-120).,SAST_FLAWFINDER,631-702
+examples\gun.c,main,True,,memcpy,SAST_RATS,631-702
+examples\gun.c,main,True,CWE-126,Does not handle strings that are not \0-terminated; if given one it may perform an over-read (it could cause a crash if unprotected) (CWE-126).,SAST_FLAWFINDER,631-702
+examples\gun.c,main,True,,strlen,SAST_RATS,631-702
+examples\gun.c,main,True,,fprintf,SAST_RATS,631-702
+examples\gzappend.c,main,True,CWE-563,Variable 'argc' is assigned a value that is never used.,SAST_CPPCHECK,466-504
+examples\gzappend.c,main,True,,printf,SAST_RATS,466-504
+examples\gzjoin.c,main,False,,No issues found by SAST,None,427-449
+examples\gzlog.c,gzlog_compress,True,CWE-398,The scope of the variable 'fd' can be reduced.,SAST_CPPCHECK,910-990
+examples\gzlog.c,gzlog_compress,True,CWE-398,The scope of the variable 'ret' can be reduced.,SAST_CPPCHECK,910-990
+examples\gzlog.c,gzlog_compress,True,CWE-398,The scope of the variable 'block' can be reduced.,SAST_CPPCHECK,910-990
+examples\gzlog.c,gzlog_compress,True,CWE-398,The scope of the variable 'next' can be reduced.,SAST_CPPCHECK,910-990
+examples\gzlog.c,gzlog_compress,True,CWE-119,"Statically-sized arrays can be improperly restricted, leading to potential overflows or other issues (CWE-119!/CWE-120).",SAST_FLAWFINDER,910-990
+examples\gzlog.c,gzlog_compress,True,CWE-120,Does not check for buffer overflows when copying to destination [MS-banned] (CWE-120).,SAST_FLAWFINDER,910-990
+examples\gzlog.c,gzlog_compress,True,,strcpy,SAST_RATS,910-990
+examples\gzlog.c,gzlog_compress,True,CWE-362,"Check when opening files - can an attacker redirect it (via symlinks), force the opening of special file type (e.g., device files), move things around to create a race condition, control its ancestors, or change its contents? (CWE-362).",SAST_FLAWFINDER,910-990
+examples\gzlog.c,gzlog_compress,True,,open,SAST_RATS,910-990
+examples\gzlog.c,gzlog_compress,True,CWE-120,"Check buffer boundaries if used in a loop including recursive loops (CWE-120, CWE-20).",SAST_FLAWFINDER,910-990
+examples\gzlog.c,gzlog_compress,True,,read,SAST_RATS,910-990
+examples\gzlog.c,gzlog_write,True,CWE-570,Checking if unsigned expression 'len' is less than zero.,SAST_CPPCHECK,997-1039
+examples\gzlog.c,gzlog_write,True,CWE-120,Does not check for buffer overflows when copying to destination [MS-banned] (CWE-120).,SAST_FLAWFINDER,997-1039
+examples\gzlog.c,gzlog_write,True,,strcpy,SAST_RATS,997-1039
+examples\gzlog.c,gzlog_write,True,CWE-362,"Check when opening files - can an attacker redirect it (via symlinks), force the opening of special file type (e.g., device files), move things around to create a race condition, control its ancestors, or change its contents? (CWE-362).",SAST_FLAWFINDER,997-1039
+examples\gzlog.c,gzlog_write,True,,open,SAST_RATS,997-1039
+examples\gzlog.c,gzlog_close,True,CWE-120,Does not check for buffer overflows when copying to destination [MS-banned] (CWE-120).,SAST_FLAWFINDER,1044-1061
+examples\gzlog.c,gzlog_close,True,,strcpy,SAST_RATS,1044-1061
+examples\gznorm.c,main,True,,fprintf,SAST_RATS,462-474
+examples\zpipe.c,def,True,CWE-398,The scope of the variable 'have' can be reduced.,SAST_CPPCHECK,37-85
+examples\zpipe.c,def,True,CWE-119,"Statically-sized arrays can be improperly restricted, leading to potential overflows or other issues (CWE-119!/CWE-120).",SAST_FLAWFINDER,37-85
+examples\zpipe.c,def,True,,fread,SAST_RATS,37-85
+examples\zpipe.c,inf,True,CWE-398,The scope of the variable 'have' can be reduced.,SAST_CPPCHECK,93-149
+examples\zpipe.c,inf,True,CWE-119,"Statically-sized arrays can be improperly restricted, leading to potential overflows or other issues (CWE-119!/CWE-120).",SAST_FLAWFINDER,93-149
+examples\zpipe.c,inf,True,,fread,SAST_RATS,93-149
+examples\zpipe.c,zerr,False,,No issues found by SAST,None,152-174
+examples\zpipe.c,main,False,,No issues found by SAST,None,177-206
+examples\zran.c,deflate_index_free,False,,No issues found by SAST,None,74-83
+examples\zran.c,deflate_index_build,True,CWE-457,Uninitialized variable: last,SAST_CPPCHECK,129-246
+examples\zran.c,deflate_index_build,True,CWE-119,"Statically-sized arrays can be improperly restricted, leading to potential overflows or other issues (CWE-119!/CWE-120).",SAST_FLAWFINDER,129-246
+examples\zran.c,deflate_index_build,True,CWE-120,"Check buffer boundaries if used in a loop including recursive loops (CWE-120, CWE-20).",SAST_FLAWFINDER,129-246
+examples\zran.c,deflate_index_build,True,,getc,SAST_RATS,129-246
+examples\zran.c,deflate_index_build,True,,fread,SAST_RATS,129-246
+examples\zran.c,inflatePreface,True,CWE-562,Address of local auto-variable assigned to a function parameter.,SAST_CPPCHECK,283-330
+examples\zran.c,inflatePreface,True,CWE-119,"Statically-sized arrays can be improperly restricted, leading to potential overflows or other issues (CWE-119!/CWE-120).",SAST_FLAWFINDER,283-330
+examples\zran.c,inflatePreface,True,CWE-120,Does not check for buffer overflows when copying to destination (CWE-120).,SAST_FLAWFINDER,283-330
+examples\zran.c,inflatePreface,True,,memcpy,SAST_RATS,283-330
+examples\zran.c,main,True,CWE-686,%ld in format string (no. 1) requires 'long' but the argument type is 'ptrdiff_t {aka signed long long}'.,SAST_CPPCHECK,479-544
+examples\zran.c,main,True,,fprintf,SAST_RATS,479-544
+examples\zran.c,main,True,CWE-775,Resource leak: in,SAST_CPPCHECK,479-544
+examples\zran.c,main,True,CWE-362,"Check when opening files - can an attacker redirect it (via symlinks), force the opening of special file type (e.g., device files), move things around to create a race condition, control its ancestors, or change its contents? (CWE-362).",SAST_FLAWFINDER,479-544
+examples\zran.c,main,True,,fopen,SAST_RATS,479-544
+examples\zran.c,main,True,CWE-119,"Statically-sized arrays can be improperly restricted, leading to potential overflows or other issues (CWE-119!/CWE-120).",SAST_FLAWFINDER,479-544
+test\example.c,myfree,False,,No issues found by SAST,None,50-53
+test\example.c,test_gzio,True,CWE-120,Does not check for buffer overflows when copying to destination [MS-banned] (CWE-120).,SAST_FLAWFINDER,90-165
+test\example.c,test_gzio,True,,strcpy,SAST_RATS,90-165
+test\example.c,test_gzio,True,CWE-126,Does not handle strings that are not \0-terminated; if given one it may perform an over-read (it could cause a crash if unprotected) (CWE-126).,SAST_FLAWFINDER,90-165
+test\example.c,test_gzio,True,,strlen,SAST_RATS,90-165
+test\example.c,test_gzio,True,,fprintf,SAST_RATS,90-165
+test\example.c,test_gzio,True,,printf,SAST_RATS,90-165
+test\example.c,test_deflate,True,CWE-126,Does not handle strings that are not \0-terminated; if given one it may perform an over-read (it could cause a crash if unprotected) (CWE-126).,SAST_FLAWFINDER,172-202
+test\example.c,test_deflate,True,,strlen,SAST_RATS,172-202
+test\example.c,test_flush,True,CWE-126,Does not handle strings that are not \0-terminated; if given one it may perform an over-read (it could cause a crash if unprotected) (CWE-126).,SAST_FLAWFINDER,338-368
+test\example.c,test_flush,True,,strlen,SAST_RATS,338-368
+test\example.c,test_dict_deflate,True,CWE-126,Does not handle strings that are not \0-terminated; if given one it may perform an over-read (it could cause a crash if unprotected) (CWE-126).,SAST_FLAWFINDER,414-443
+test\example.c,test_dict_deflate,True,,strlen,SAST_RATS,414-443
+test\example.c,test_dict_deflate,True,,fprintf,SAST_RATS,414-443
+test\example.c,main,True,,fprintf,SAST_RATS,497-552
+test\example.c,main,True,,printf,SAST_RATS,497-552
+test\infcover.c,main,True,,fprintf,SAST_RATS,662-672
+test\minigzip.c,pwinerror,False,,No issues found by SAST,None,128-129
+test\minigzip.c,myfree,False,,No issues found by SAST,None,185-188
+test\minigzip.c,gzwrite,True,CWE-457,Uninitialized variable: out,SAST_CPPCHECK,240-256
+test\minigzip.c,gzwrite,True,CWE-119,"Statically-sized arrays can be improperly restricted, leading to potential overflows or other issues (CWE-119!/CWE-120).",SAST_FLAWFINDER,240-256
+test\minigzip.c,gzread,True,CWE-398,The scope of the variable 'ret' can be reduced.,SAST_CPPCHECK,258-287
+test\minigzip.c,gzread,True,CWE-398,The scope of the variable 'got' can be reduced.,SAST_CPPCHECK,258-287
+test\minigzip.c,gzread,True,CWE-119,"Statically-sized arrays can be improperly restricted, leading to potential overflows or other issues (CWE-119!/CWE-120).",SAST_FLAWFINDER,258-287
+test\minigzip.c,gzread,True,,fread,SAST_RATS,258-287
+test\minigzip.c,gzclose,True,CWE-457,Uninitialized variable: out,SAST_CPPCHECK,289-312
+test\minigzip.c,gzclose,True,CWE-119,"Statically-sized arrays can be improperly restricted, leading to potential overflows or other issues (CWE-119!/CWE-120).",SAST_FLAWFINDER,289-312
+test\minigzip.c,error,True,,fprintf,SAST_RATS,326-329
+test\minigzip.c,gz_compress_mmap,False,,No issues found by SAST,None,336-362
+test\minigzip.c,gz_compress,True,CWE-119,"Statically-sized arrays can be improperly restricted, leading to potential overflows or other issues (CWE-119!/CWE-120).",SAST_FLAWFINDER,369-392
+test\minigzip.c,gz_compress,True,,fread,SAST_RATS,369-392
+test\minigzip.c,gz_uncompress,True,CWE-398,The scope of the variable 'len' can be reduced.,SAST_CPPCHECK,397-414
+test\minigzip.c,gz_uncompress,True,CWE-119,"Statically-sized arrays can be improperly restricted, leading to potential overflows or other issues (CWE-119!/CWE-120).",SAST_FLAWFINDER,397-414
+test\minigzip.c,file_compress,True,CWE-398,Parameter 'file' can be declared as pointer to const,SAST_CPPCHECK,421-448
+test\minigzip.c,file_compress,True,CWE-398,Parameter 'mode' can be declared as pointer to const,SAST_CPPCHECK,421-448
+test\minigzip.c,file_compress,True,CWE-119,"Statically-sized arrays can be improperly restricted, leading to potential overflows or other issues (CWE-119!/CWE-120).",SAST_FLAWFINDER,421-448
+test\minigzip.c,file_compress,True,CWE-362,"Check when opening files - can an attacker redirect it (via symlinks), force the opening of special file type (e.g., device files), move things around to create a race condition, control its ancestors, or change its contents? (CWE-362).",SAST_FLAWFINDER,421-448
+test\minigzip.c,file_compress,True,,fopen,SAST_RATS,421-448
+test\minigzip.c,file_compress,True,CWE-126,Does not handle strings that are not \0-terminated; if given one it may perform an over-read (it could cause a crash if unprotected) (CWE-126).,SAST_FLAWFINDER,421-448
+test\minigzip.c,file_compress,True,,strlen,SAST_RATS,421-448
+test\minigzip.c,file_compress,True,,fprintf,SAST_RATS,421-448
+test\minigzip.c,file_compress,True,,unlink,SAST_RATS,421-448
+test\minigzip.c,file_uncompress,True,CWE-398,Variable 'infile' can be declared as pointer to const,SAST_CPPCHECK,454-492
+test\minigzip.c,file_uncompress,True,CWE-119,"Statically-sized arrays can be improperly restricted, leading to potential overflows or other issues (CWE-119!/CWE-120).",SAST_FLAWFINDER,454-492
+test\minigzip.c,file_uncompress,True,CWE-362,"Check when opening files - can an attacker redirect it (via symlinks), force the opening of special file type (e.g., device files), move things around to create a race condition, control its ancestors, or change its contents? (CWE-362).",SAST_FLAWFINDER,454-492
+test\minigzip.c,file_uncompress,True,,fopen,SAST_RATS,454-492
+test\minigzip.c,file_uncompress,True,CWE-126,Does not handle strings that are not \0-terminated; if given one it may perform an over-read (it could cause a crash if unprotected) (CWE-126).,SAST_FLAWFINDER,454-492
+test\minigzip.c,file_uncompress,True,,strlen,SAST_RATS,454-492
+test\minigzip.c,file_uncompress,True,,fprintf,SAST_RATS,454-492
+test\minigzip.c,file_uncompress,True,,unlink,SAST_RATS,454-492
+test\minigzip.c,main,True,CWE-398,Variable 'bname' can be declared as pointer to const,SAST_CPPCHECK,505-592
+test\minigzip.c,main,True,CWE-119,"Statically-sized arrays can be improperly restricted, leading to potential overflows or other issues (CWE-119!/CWE-120).",SAST_FLAWFINDER,505-592
+test\minigzip.c,main,True,CWE-362,"Check when opening files - can an attacker redirect it (via symlinks), force the opening of special file type (e.g., device files), move things around to create a race condition, control its ancestors, or change its contents? (CWE-362).",SAST_FLAWFINDER,505-592
+test\minigzip.c,main,True,,fopen,SAST_RATS,505-592
+test\minigzip.c,main,True,,fprintf,SAST_RATS,505-592

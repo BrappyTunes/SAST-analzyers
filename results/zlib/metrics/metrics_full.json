@@ -1,0 +1,695 @@
+{
+  "binary": {
+    "source": "results\\zlib\\metrics\\ALL_binary_evaluation.csv",
+    "by_tool": {
+      "cppcheck": {
+        "n": 78,
+        "tp": 12,
+        "fp": 18,
+        "tn": 33,
+        "fn": 15,
+        "accuracy": 0.576923,
+        "precision": 0.4,
+        "recall": 0.444444,
+        "specificity": 0.647059,
+        "f1": 0.421053,
+        "false_positive_rate": 0.352941,
+        "false_negative_rate": 0.555556,
+        "positive_support_gt": 27,
+        "negative_support_gt": 51
+      },
+      "flawfinder": {
+        "n": 78,
+        "tp": 20,
+        "fp": 15,
+        "tn": 36,
+        "fn": 7,
+        "accuracy": 0.717949,
+        "precision": 0.571429,
+        "recall": 0.740741,
+        "specificity": 0.705882,
+        "f1": 0.645161,
+        "false_positive_rate": 0.294118,
+        "false_negative_rate": 0.259259,
+        "positive_support_gt": 27,
+        "negative_support_gt": 51
+      },
+      "rats": {
+        "n": 78,
+        "tp": 24,
+        "fp": 25,
+        "tn": 26,
+        "fn": 3,
+        "accuracy": 0.641026,
+        "precision": 0.489796,
+        "recall": 0.888889,
+        "specificity": 0.509804,
+        "f1": 0.631579,
+        "false_positive_rate": 0.490196,
+        "false_negative_rate": 0.111111,
+        "positive_support_gt": 27,
+        "negative_support_gt": 51
+      },
+      "sast_any": {
+        "n": 78,
+        "tp": 24,
+        "fp": 30,
+        "tn": 21,
+        "fn": 3,
+        "accuracy": 0.576923,
+        "precision": 0.444444,
+        "recall": 0.888889,
+        "specificity": 0.411765,
+        "f1": 0.592593,
+        "false_positive_rate": 0.588235,
+        "false_negative_rate": 0.111111,
+        "positive_support_gt": 27,
+        "negative_support_gt": 51
+      }
+    },
+    "pooled_all_tools": {
+      "n": 390,
+      "tp": 80,
+      "fp": 88,
+      "tn": 167,
+      "fn": 55,
+      "accuracy": 0.633333,
+      "precision": 0.47619,
+      "recall": 0.592593,
+      "specificity": 0.654902,
+      "f1": 0.528053,
+      "false_positive_rate": 0.345098,
+      "false_negative_rate": 0.407407,
+      "positive_support_gt": 135,
+      "negative_support_gt": 255
+    }
+  },
+  "multiclass": {
+    "source": "results\\zlib\\metrics\\ALL_multiclass_evaluation.csv",
+    "by_tool": {
+      "cppcheck": {
+        "n": 78,
+        "n_classes": 18,
+        "accuracy": 0.435897,
+        "micro_precision": 0.435897,
+        "micro_recall": 0.435897,
+        "micro_f1": 0.435897,
+        "macro_precision": 0.056713,
+        "macro_recall": 0.063725,
+        "macro_f1": 0.059259,
+        "weighted_precision": 0.458066,
+        "weighted_recall": 0.435897,
+        "weighted_f1": 0.446154,
+        "per_class": {
+          "CWE-120": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 7
+          },
+          "CWE-121": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 2
+          },
+          "CWE-125": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 2
+          },
+          "CWE-131": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 1
+          },
+          "CWE-190": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 3
+          },
+          "CWE-221": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 2
+          },
+          "CWE-398": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "CWE-416": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 1
+          },
+          "CWE-457": {
+            "precision": 0.333333,
+            "recall": 0.5,
+            "f1": 0.4,
+            "support": 2
+          },
+          "CWE-476": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 2
+          },
+          "CWE-562": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "CWE-563": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "CWE-570": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "CWE-571": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "CWE-686": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "CWE-775": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "CWE-787": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 5
+          },
+          "NO_CWE": {
+            "precision": 0.6875,
+            "recall": 0.647059,
+            "f1": 0.666667,
+            "support": 51
+          }
+        }
+      },
+      "flawfinder": {
+        "n": 78,
+        "n_classes": 14,
+        "accuracy": 0.538462,
+        "micro_precision": 0.538462,
+        "micro_recall": 0.538462,
+        "micro_f1": 0.538462,
+        "macro_precision": 0.139166,
+        "macro_recall": 0.138856,
+        "macro_f1": 0.138045,
+        "weighted_precision": 0.612933,
+        "weighted_recall": 0.538462,
+        "weighted_f1": 0.571331,
+        "per_class": {
+          "CWE-119": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "CWE-120": {
+            "precision": 0.444444,
+            "recall": 0.571429,
+            "f1": 0.5,
+            "support": 7
+          },
+          "CWE-121": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 2
+          },
+          "CWE-125": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 2
+          },
+          "CWE-126": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "CWE-131": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 1
+          },
+          "CWE-190": {
+            "precision": 0.666667,
+            "recall": 0.666667,
+            "f1": 0.666667,
+            "support": 3
+          },
+          "CWE-221": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 2
+          },
+          "CWE-362": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "CWE-416": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 1
+          },
+          "CWE-457": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 2
+          },
+          "CWE-476": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 2
+          },
+          "CWE-787": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 5
+          },
+          "NO_CWE": {
+            "precision": 0.837209,
+            "recall": 0.705882,
+            "f1": 0.765957,
+            "support": 51
+          }
+        }
+      },
+      "rats": {
+        "n": 78,
+        "n_classes": 11,
+        "accuracy": 0.653846,
+        "micro_precision": 0.653846,
+        "micro_recall": 0.653846,
+        "micro_f1": 0.653846,
+        "macro_precision": 0.059441,
+        "macro_recall": 0.090909,
+        "macro_f1": 0.071882,
+        "weighted_precision": 0.427515,
+        "weighted_recall": 0.653846,
+        "weighted_f1": 0.516995,
+        "per_class": {
+          "CWE-120": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 7
+          },
+          "CWE-121": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 2
+          },
+          "CWE-125": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 2
+          },
+          "CWE-131": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 1
+          },
+          "CWE-190": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 3
+          },
+          "CWE-221": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 2
+          },
+          "CWE-416": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 1
+          },
+          "CWE-457": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 2
+          },
+          "CWE-476": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 2
+          },
+          "CWE-787": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 5
+          },
+          "NO_CWE": {
+            "precision": 0.653846,
+            "recall": 1.0,
+            "f1": 0.790698,
+            "support": 51
+          }
+        }
+      },
+      "sast_any": {
+        "n": 78,
+        "n_classes": 18,
+        "accuracy": 0.448718,
+        "micro_precision": 0.448718,
+        "micro_recall": 0.448718,
+        "micro_f1": 0.448718,
+        "macro_precision": 0.106481,
+        "macro_recall": 0.100373,
+        "macro_f1": 0.101852,
+        "weighted_precision": 0.592236,
+        "weighted_recall": 0.448718,
+        "weighted_f1": 0.50641,
+        "per_class": {
+          "CWE-119": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "CWE-120": {
+            "precision": 0.444444,
+            "recall": 0.571429,
+            "f1": 0.5,
+            "support": 7
+          },
+          "CWE-121": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 2
+          },
+          "CWE-125": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 2
+          },
+          "CWE-126": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "CWE-131": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 1
+          },
+          "CWE-190": {
+            "precision": 0.666667,
+            "recall": 0.666667,
+            "f1": 0.666667,
+            "support": 3
+          },
+          "CWE-221": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 2
+          },
+          "CWE-362": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "CWE-398": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "CWE-416": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 1
+          },
+          "CWE-457": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 2
+          },
+          "CWE-476": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 2
+          },
+          "CWE-563": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "CWE-571": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "CWE-686": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 0
+          },
+          "CWE-787": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 5
+          },
+          "NO_CWE": {
+            "precision": 0.805556,
+            "recall": 0.568627,
+            "f1": 0.666667,
+            "support": 51
+          }
+        }
+      }
+    },
+    "pooled_all_tools": {
+      "n": 390,
+      "n_classes": 21,
+      "accuracy": 0.546154,
+      "micro_precision": 0.546154,
+      "micro_recall": 0.546154,
+      "micro_f1": 0.546154,
+      "macro_precision": 0.102436,
+      "macro_recall": 0.065693,
+      "macro_f1": 0.075247,
+      "weighted_precision": 0.536156,
+      "weighted_recall": 0.546154,
+      "weighted_f1": 0.53182,
+      "per_class": {
+        "CWE-119": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "CWE-120": {
+          "precision": 0.444444,
+          "recall": 0.228571,
+          "f1": 0.301887,
+          "support": 35
+        },
+        "CWE-121": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 10
+        },
+        "CWE-125": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 10
+        },
+        "CWE-126": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "CWE-131": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 5
+        },
+        "CWE-190": {
+          "precision": 0.666667,
+          "recall": 0.266667,
+          "f1": 0.380952,
+          "support": 15
+        },
+        "CWE-221": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 10
+        },
+        "CWE-362": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "CWE-398": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "CWE-416": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 5
+        },
+        "CWE-457": {
+          "precision": 0.333333,
+          "recall": 0.1,
+          "f1": 0.153846,
+          "support": 10
+        },
+        "CWE-476": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 10
+        },
+        "CWE-562": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "CWE-563": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "CWE-570": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "CWE-571": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "CWE-686": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "CWE-775": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "CWE-787": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 25
+        },
+        "NO_CWE": {
+          "precision": 0.706714,
+          "recall": 0.784314,
+          "f1": 0.743494,
+          "support": 255
+        }
+      }
+    }
+  },
+  "project_descriptive": {
+    "source": "results\\zlib\\sast_report.csv",
+    "has_ground_truth": false,
+    "note": "No ground-truth labels — accuracy/recall cannot be computed.",
+    "n_rows": 218,
+    "vulnerable_rows": 194,
+    "clean_rows": 24,
+    "vulnerable_rate": 0.889908,
+    "findings_by_analyzer": {
+      "SAST_RATS": 83,
+      "SAST_FLAWFINDER": 58,
+      "SAST_CPPCHECK": 53
+    },
+    "top_cwes": {
+      "CWE-398": 28,
+      "CWE-119": 22,
+      "CWE-120": 17,
+      "CWE-126": 9,
+      "CWE-362": 7,
+      "CWE-686": 6,
+      "CWE-563": 6,
+      "CWE-570": 4,
+      "CWE-571": 3,
+      "CWE-190": 3,
+      "CWE-457": 3,
+      "CWE-665": 1,
+      "CWE-562": 1,
+      "CWE-775": 1
+    },
+    "unique_functions": 78
+  }
+}

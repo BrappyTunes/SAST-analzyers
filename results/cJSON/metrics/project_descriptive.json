@@ -1,0 +1,29 @@
+{
+  "source": "results\\cJSON\\sast_report.csv",
+  "has_ground_truth": false,
+  "note": "No ground-truth labels — accuracy/recall cannot be computed.",
+  "n_rows": 994,
+  "vulnerable_rows": 195,
+  "clean_rows": 799,
+  "vulnerable_rate": 0.196177,
+  "findings_by_analyzer": {
+    "SAST_CPPCHECK": 108,
+    "SAST_FLAWFINDER": 45,
+    "SAST_RATS": 42
+  },
+  "top_cwes": {
+    "CWE-398": 75,
+    "CWE-476": 23,
+    "CWE-126": 17,
+    "CWE-119": 14,
+    "CWE-120": 11,
+    "CWE-563": 5,
+    "CWE-788": 3,
+    "CWE-362": 1,
+    "CWE-327": 1,
+    "CWE-134": 1,
+    "CWE-571": 1,
+    "CWE-401": 1
+  },
+  "unique_functions": 902
+}
